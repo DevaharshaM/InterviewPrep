@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
 </head>
 <body>
   <h1>Embedded Interview Preparation</h1>
-  <div class="byline">by Devaharsha</div>
+  <div class="byline" id="byline">by Devaharsha</div>
 
   <div class="menu">
     <a href="#c">C interview question</a>
@@ -18,5 +17,13 @@
     <a href="#os">OS interview question</a>
     <hr class="divider" />
   </div>
+
+  <script>
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById("byline").style.opacity = 1;
+    }, 1000); 
+  };
+</script>
 </body>
 </html>
