@@ -20,8 +20,10 @@ h1 {
 .byline {
   color: gold;
   font-style: italic;
-  margin-bottom: 4em;
+  margin-bottom: 6em;
   font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 1s ease-in;
 }
 
 .menu {
