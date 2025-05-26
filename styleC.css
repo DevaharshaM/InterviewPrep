@@ -82,3 +82,15 @@ body {
   font-weight: bold;
   user-select: none;
 }
+
+.more-link {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.more-link a {
+  color: #DBBF21;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
