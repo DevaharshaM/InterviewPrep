@@ -54,7 +54,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5c6bc0;
+  background-color: #5c6bc0;  /* Same for both sides */
+  color: black;
   font-size: 1.1rem;
 }
 
