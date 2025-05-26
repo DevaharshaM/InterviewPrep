@@ -13,7 +13,7 @@ body {
 .centered-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 6em; 
+  margin-bottom: 5em;
   color: white;
 }
 
@@ -22,6 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 2em;
 }
 
 .card {
@@ -36,4 +37,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 2em;
+}
+
+.button.oval {
+  background-color: white;
+  color: #5c6bc0;
+  padding: 0.6em 1.5em;
+  border-radius: 999px;
+  border: 2px solid #5c6bc0;
+  font-weight: bold;
+  user-select: none;
 }
