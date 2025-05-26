@@ -13,7 +13,7 @@ body {
 .centered-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 5em;
+  margin-bottom: 6em;
   color: white;
 }
 
@@ -44,7 +44,7 @@ body {
   gap: 2em;
 }
 
-.button.oval {
+.button-oval {
   background-color: white;
   color: #5c6bc0;
   padding: 0.6em 1.5em;
