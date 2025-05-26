@@ -1,5 +1,5 @@
 body {
-  background-color: #d6a2e8; /* light purple */
+  background-color: #913891; 
   font-family: 'Segoe UI', sans-serif;
   color: black;
   display: flex;
@@ -13,7 +13,7 @@ body {
 .centered-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 6em;
+  margin-bottom: 5em;
   color: white;
 }
 
@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .card {
@@ -41,7 +41,7 @@ body {
 
 .nav-buttons {
   display: flex;
-  gap: 2em;
+  gap: 3em;
 }
 
 .button-oval {
