@@ -22,13 +22,14 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 5em;
+  margin-bottom: 4em; /* more space before buttons */
 }
 
 .card {
   width: 400px;
   height: 200px;
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .card-inner {
@@ -55,18 +56,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1rem;
   background-color: #5c6bc0;
   color: black;
-  font-size: 1.1rem;
 }
 
 .card-back {
   transform: rotateY(180deg);
+  background-color: #282F5C;
+  color: #DBBF21;
 }
 
 .nav-buttons {
   display: flex;
   gap: 3em;
+  margin-top: 2em;
 }
 
 .button-oval {
