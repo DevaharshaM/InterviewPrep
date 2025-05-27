@@ -2,9 +2,7 @@ body {
   background-color: #913891;
   font-family: 'Segoe UI', sans-serif;
   color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block; 
   margin: 0;
   padding: 2em;
   min-height: 100vh;
@@ -22,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 4em; /* more space before buttons */
+  margin-bottom: 4em;
 }
 
 .card {
@@ -49,8 +47,8 @@ body {
   position: absolute;
   width: 100%;
   min-height: 200px;
-  height: auto;
-  overflow: auto;
+  max-height: auto;
+  overflow-y: auto;
   backface-visibility: hidden;
   padding: 2em;
   border: 2px solid #222;
@@ -71,7 +69,8 @@ body {
 .nav-buttons {
   display: flex;
   gap: 3em;
-  margin-top: 2em;
+  margin-top: 1em;
+  justify-content: center;
 }
 
 .button-oval {
