@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 4em;
+  margin-bottom: 0em;
 }
 
 .card {
@@ -63,6 +63,9 @@ body {
   transform: rotateY(180deg);
   background-color: #282F5C;
   color: #DBBF21;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-buttons {
@@ -94,4 +97,11 @@ body {
   text-decoration: underline;
   font-weight: bold;
   font-size: 0.95rem;
+}
+
+.more-label {
+  margin-top: 1em;
+  text-align: center;
+  font-weight: bold;
+  color: #DBBF21;
 }
