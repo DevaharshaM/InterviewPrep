@@ -95,13 +95,7 @@ body {
 .more-link a {
   color: #DBBF21;
   text-decoration: underline;
-  font-weight: bold;
-  font-size: 0.95rem;
-}
-
-.more-label {
-  margin-top: 1em;
   text-align: center;
   font-weight: bold;
-  color: #DBBF21;
+  font-size: 0.95rem;
 }
