@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 0em;
+  margin-bottom: 4em;
 }
 
 .card {
@@ -71,7 +71,6 @@ body {
 .nav-buttons {
   display: flex;
   gap: 3em;
-  margin-top: 3em;
   justify-content: center;
 }
 
