@@ -55,13 +55,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #5c6bc0;
+  background-color: #B36134;
   font-size: 1.1rem;
 }
 
 .card-back {
   transform: rotateY(180deg);
-  background-color: #282F5C;
+  background-color: #B36134;
   color: #DBBF21;
   text-align: center;
   justify-content: center;
