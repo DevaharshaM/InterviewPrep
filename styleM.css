@@ -1,7 +1,7 @@
 body {
   background-color: #B9B91D;
   font-family: 'Segoe UI', sans-serif;
-  color: black;
+  color: white;
   display: block; 
   margin: 0;
   padding: 2em;
@@ -62,7 +62,7 @@ body {
 .card-back {
   transform: rotateY(180deg);
   background-color: #B36134;
-  color: #DBBF21;
+  color: #30154D;
   text-align: center;
   justify-content: center;
   align-items: center;
