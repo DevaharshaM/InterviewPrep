@@ -55,7 +55,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  text-align: center;
   background-color: #965633;
   font-size: 1.1rem;
 }
