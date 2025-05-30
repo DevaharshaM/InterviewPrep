@@ -32,47 +32,15 @@
       </div>`
   },
   {
-    front: `2. What is the output of the following C program?<br><pre><code>#include &lt;stdio.h&gt;
-
-void funcA() {
-    static int x = 0;
-    x += 2;
-    printf("%d ", x);
-}
-
-void funcB() {
-    static int x = 5;
-    x += 3;
-    printf("%d ", x);
-}
-
-int main() {
-    funcA(); 
-    funcB(); 
-    funcA(); 
-    funcB(); 
-    return 0;
-}</code></pre>`,
-    back: `2 8 4 11
+    front: "2. What are CPOL and CPHA in SPI communication?",
+    back: `CPOL (Clock Polarity) and CPHA (Clock Phase) are SPI settings that define how data is sampled and shifted relative to the SPI clock signal.
     <div class="more-link">
         <a href="https://github.com/DevaharshaM/InterviewPrep/blob/storage_class/README.md" target="_blank">More</a>
       </div>`
   },
   {
-  front: `3. Match the correct description with the memory section:<br><br>
-<table>
-  <thead>
-    <tr><th>Segment</th><th>Description</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>A) Text</td><td>1) Memory for dynamically allocated data</td></tr>
-    <tr><td>B) Data</td><td>2) Uninitialized global and static variables</td></tr>
-    <tr><td>C) BSS</td><td>3) Read-only area containing program instructions</td></tr>
-    <tr><td>D) Heap</td><td>4) Initialized global and static variables</td></tr>
-    <tr><td>E) Stack</td><td>5) Function call frames, local variables</td></tr>
-  </tbody>
-</table>`,
-  back: `A–3, B–4, C–2, D–1, E–5
+  front: "3. Why is CAN (Controller Area Network) considered a robust communication protocol?",
+  back: `CAN is considered robust primarily because of its **differential signaling**, along with several other fault-handling and error-checking features that ensure reliable communication even in harsh environments.
     <div class="more-link">
       <a href="http://github.com/DevaharshaM/InterviewPrep/blob/memory_layout/README.md" target="_blank">More</a>
      </div>`
