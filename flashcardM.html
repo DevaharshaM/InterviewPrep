@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Microcontroller Flashcards</title>
+  <link rel="stylesheet" href="styleC.css">
+</head>
+<body>
+  <h1 class="centered-title">Microcontroller peripherals</h1>
+
+  <div class="card-stack" onclick="flipCard()">
+    <div class="card" id="card">
+      <div class="card-inner" id="card-inner">
+        <div class="card-front" id="card-front"></div>
+        <div class="card-back" id="card-back"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 3em;"></div>
+  <div class="nav-buttons">
+    <div class="button-oval" id="prev-btn" onclick="prevCard()">Prev</div>
+    <div class="button-oval" id="next-btn" onclick="nextCard()">Next</div>
+  </div>
+
+  <script>
+    const cards = [
+  {
+    front: "1. What is the Volatile keyword?",
+    back: `Volatile tells the compiler that the variable’s value can change due to the background processes.
+      <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/type_qualifiers/README.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: `2. What is the output of the following C program?<br><pre><code>#include &lt;stdio.h&gt;
+
+void funcA() {
+    static int x = 0;
+    x += 2;
+    printf("%d ", x);
+}
+
+void funcB() {
+    static int x = 5;
+    x += 3;
+    printf("%d ", x);
+}
+
+int main() {
+    funcA(); 
+    funcB(); 
+    funcA(); 
+    funcB(); 
+    return 0;
+}</code></pre>`,
+    back: `2 8 4 11
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/storage_class/README.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+  front: `3. Match the correct description with the memory section:<br><br>
+<table>
+  <thead>
+    <tr><th>Segment</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A) Text</td><td>1) Memory for dynamically allocated data</td></tr>
+    <tr><td>B) Data</td><td>2) Uninitialized global and static variables</td></tr>
+    <tr><td>C) BSS</td><td>3) Read-only area containing program instructions</td></tr>
+    <tr><td>D) Heap</td><td>4) Initialized global and static variables</td></tr>
+    <tr><td>E) Stack</td><td>5) Function call frames, local variables</td></tr>
+  </tbody>
+</table>`,
+  back: `A–3, B–4, C–2, D–1, E–5
+    <div class="more-link">
+      <a href="http://github.com/DevaharshaM/InterviewPrep/blob/memory_layout/README.md" target="_blank">More</a>
+     </div>`
+}
+];
+
+    let currentCard = 0;
+
+    function updateCard() {
+      const front = document.getElementById("card-front");
+      const back = document.getElementById("card-back");
+      const cardInner = document.getElementById("card-inner");
+
+      front.innerHTML = cards[currentCard].front;
+      back.innerHTML = cards[currentCard].back;
+
+      cardInner.classList.remove("flipped");
+
+      document.getElementById("prev-btn").style.visibility = currentCard === 0 ? "hidden" : "visible";
+      document.getElementById("next-btn").style.visibility = currentCard === cards.length - 1 ? "hidden" : "visible";
+    }
+
+    function flipCard() {
+      document.getElementById("card-inner").classList.toggle("flipped");
+    }
+
+    function nextCard() {
+      if (currentCard < cards.length - 1) {
+        currentCard++;
+        updateCard();
+      }
+    }
+
+    function prevCard() {
+      if (currentCard > 0) {
+        currentCard--;
+        updateCard();
+      }
+    }
+
+    window.onload = updateCard;
+  </script>
+</body>
+</html>
