@@ -1,7 +1,7 @@
 body {
-  background-color: #D8561E;
+  background-color: #C47858;
   font-family: 'Segoe UI', sans-serif;
-  color: #2CC0B9;
+  color: #256D69;
   display: block; 
   margin: 0;
   padding: 2em;
@@ -12,7 +12,7 @@ body {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 5em;
-  color: #2CC0B9;
+  color: #256D69;
 }
 
 .card-stack {
@@ -55,14 +55,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #3A332F;
+  background-color: #194E1C;
   font-size: 1.1rem;
 }
 
 .card-back {
   transform: rotateY(180deg);
   background-color: #409846;
-  color: #700662;
+  color: #110670;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -92,7 +92,7 @@ body {
 }
 
 .more-link a {
-  color: #700662;
+  color: #110670;
   text-decoration: underline;
   text-align: center;
   font-weight: bold;
