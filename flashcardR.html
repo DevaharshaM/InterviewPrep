@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OS Flashcards</title>
+  <link rel="stylesheet" href="styleR.css">
+</head>
+<body>
+  <h1 class="centered-title">Operating System Concepts</h1>
+
+  <div class="card-stack" onclick="flipCard()">
+    <div class="card" id="card">
+      <div class="card-inner" id="card-inner">
+        <div class="card-front" id="card-front"></div>
+        <div class="card-back" id="card-back"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 3em;"></div>
+  <div class="nav-buttons">
+    <div class="button-oval" id="prev-btn" onclick="prevCard()">Prev</div>
+    <div class="button-oval" id="next-btn" onclick="nextCard()">Next</div>
+  </div>
+
+  <script>
+    const cards = [
+  {
+    front: "1. What is Kernel?",
+    back: `Baud rate is the number of signal changes (symbols) transmitted per second in a communication channel. It defines how fast data is transmitted or received.
+      <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/type_qualifiers/README.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "2. What are CPOL and CPHA in SPI communication?",
+    back: `CPOL (Clock Polarity) and CPHA (Clock Phase) are SPI settings that define how data is sampled and shifted relative to the SPI clock signal.
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/storage_class/README.md" target="_blank">More</a>
+      </div>`
+  }
+];
+
+    let currentCard = 0;
+
+    function updateCard() {
+      const front = document.getElementById("card-front");
+      const back = document.getElementById("card-back");
+      const cardInner = document.getElementById("card-inner");
+
+      front.innerHTML = cards[currentCard].front;
+      back.innerHTML = cards[currentCard].back;
+
+      cardInner.classList.remove("flipped");
+
+      document.getElementById("prev-btn").style.visibility = currentCard === 0 ? "hidden" : "visible";
+      document.getElementById("next-btn").style.visibility = currentCard === cards.length - 1 ? "hidden" : "visible";
+    }
+
+    function flipCard() {
+      document.getElementById("card-inner").classList.toggle("flipped");
+    }
+
+    function nextCard() {
+      if (currentCard < cards.length - 1) {
+        currentCard++;
+        updateCard();
+      }
+    }
+
+    function prevCard() {
+      if (currentCard > 0) {
+        currentCard--;
+        updateCard();
+      }
+    }
+
+    window.onload = updateCard;
+  </script>
+</body>
+</html>
