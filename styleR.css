@@ -59,6 +59,13 @@ body {
   font-size: 1.1rem;
 }
 
+.card-front {
+  color: #41DBD4;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-back {
   transform: rotateY(180deg);
   background-color: #409846;
