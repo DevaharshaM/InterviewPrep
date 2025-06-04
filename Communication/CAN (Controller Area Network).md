@@ -1,6 +1,6 @@
 # CAN – Controller Area Network
 
-The Controller Area Network (CAN) is a robust, multi-master [serial communication](https://github.com/DevaharshaM/InterviewPrep/blob/communication/README.md) protocol designed for real-time control applications. Originally developed by Bosch, it's widely used in automotive, industrial, and medical systems.
+The Controller Area Network (CAN) is a robust, multi-master [serial communication](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md) protocol designed for real-time control applications. Originally developed by Bosch, it's widely used in automotive, industrial, and medical systems.
 
 ---
 
