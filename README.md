@@ -9,6 +9,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 
 ## 1️⃣ C Programming
 
+- [Compilation Process](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Compilation%20Process/Building%20process%20in%20C.md)
 - [Memory Layout](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Memory%20Layout/Memory%20Layout%20in%20C.md)  
 - [Storage Classes](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Storage%20Classes/Storage%20Classes%20in%20C.md)  
 - [Type Qualifiers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Type%20Qualifiers/Type%20Qualifiers%20in%20C.md)  
