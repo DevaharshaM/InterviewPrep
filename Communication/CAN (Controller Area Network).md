@@ -32,9 +32,12 @@ CAN has two primary frame types defined under CAN 2.0:
 
 ### ➤ CAN 2.0A (Standard Frame)
 
-![CAN 2.0A frame](https://github.com/DevaharshaM/InterviewPrep/blob/can/frame1.png)
+<figure>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameCAN2.0A.png">
+  <figcaption>Figure 2: CAN 2.0A Frame Format</figcaption>
+</figure>
 
-Here’s a breakdown of each field:
+<br><br>Here’s a breakdown of each field:
 
 | Field                          | Bits        | Description                                                            |
 |--------------------------------|-------------|------------------------------------------------------------------------|
@@ -52,9 +55,12 @@ Here’s a breakdown of each field:
 
 ### ➤ CAN 2.0B (Extended Frame)
 
-![CAN 2.0B frame](https://github.com/DevaharshaM/InterviewPrep/blob/can/frame2.png)
+<figure>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameCAN2.0A.png">
+  <figcaption>Figure 2: CAN 2.0A Frame Format</figcaption>
+</figure>
 
-Here’s a breakdown of each field:
+<br><br>Here’s a breakdown of each field:
 
 | Field                          | Bits        | Description                                                            |
 |--------------------------------|-------------|------------------------------------------------------------------------|
