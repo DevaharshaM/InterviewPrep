@@ -15,7 +15,7 @@ The Controller Area Network (CAN) is a robust, multi-master [serial communicatio
 
 ### CAN Wiring Diagram
 
-![CAN Wiring](https://github.com/DevaharshaM/InterviewPrep/blob/can/block.png)
+![CAN Wiring](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/blockCAN.png)
 
 ---
 
