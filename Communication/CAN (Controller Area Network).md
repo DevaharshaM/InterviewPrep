@@ -56,8 +56,8 @@ CAN has two primary frame types defined under CAN 2.0:
 ### ➤ CAN 2.0B (Extended Frame)
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameCAN2.0A.png">
-  <figcaption>Figure 2: CAN 2.0A Frame Format</figcaption>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameCAN2.0B.png">
+  <figcaption>Figure 3: CAN 2.0B Frame Format</figcaption>
 </figure>
 
 <br><br>Here’s a breakdown of each field:
