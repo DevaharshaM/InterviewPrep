@@ -48,7 +48,7 @@ At `9600` baud, one bit is transmitted every **104.17 microseconds**.
 A typical UART data frame:
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/uart/frame.png">
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameUART.png">
   <figcaption>Figure 2: UART Frame Format</figcaption>
 </figure>
 
