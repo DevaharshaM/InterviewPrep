@@ -1,4 +1,4 @@
-# 🧠 **Sannihita Sutra**  
+# 🧠 **Nihita Sutra**  
 ### *A Rapid Glance Before Your Embedded Interview*
 
 ---
