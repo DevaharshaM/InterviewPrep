@@ -50,7 +50,5 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - Real-Time Constraints
 
 ---
----
----
 
-_A mindful collection by Devaharsha | Shared for learning_
+_A mindful collection by **Devaharsha** | Shared for learning_
