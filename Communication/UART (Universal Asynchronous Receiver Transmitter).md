@@ -16,7 +16,7 @@ UART is a widely used [serial communication](https://github.com/DevaharshaM/Inte
 ### UART Wiring Diagram
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/uart/block.png">
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/blockUART.png">
   <figcaption>Figure 1: UART Block Diagram</figcaption>
 </figure>
 
