@@ -9,8 +9,8 @@ When a C program is compiled and run, its memory is divided into well-defined se
 - Stack
 
 <figure>
-  <img src="https://github.com/DevaharshaM/InterviewPrep/blob/memory_layout/layout.png" alt="Memory Layout" style="max-width: 100%;">
-  <figcaption>Figure: Memory layout of RAM</figcaption>
+  <img src="https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Memory%20Layout/layout.png" alt="Memory Layout" style="max-width: 100%;">
+  <figcaption>Figure 1 : Memory layout of RAM</figcaption>
 </figure>
 
 ---
