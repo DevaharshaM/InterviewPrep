@@ -1,6 +1,6 @@
 # UART – Universal Asynchronous Receiver/Transmitter
 
-UART is a widely used [serial communication](https://github.com/DevaharshaM/InterviewPrep/blob/communication/README.md) protocol in embedded systems. It is simple, asynchronous, and ideal for point-to-point data transfer over short distances.
+UART is a widely used [serial communication](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md) protocol in embedded systems. It is simple, asynchronous, and ideal for point-to-point data transfer over short distances.
 
 ---
 
