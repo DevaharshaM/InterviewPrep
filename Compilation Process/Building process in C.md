@@ -1,77 +1,84 @@
-# Data Type Sizes in C
+# Compiler Toolchain
 
-In C, each data type occupies a certain amount of memory, and this size can depend on the architecture (e.g., 32-bit vs 64-bit), compiler, and platform. Understanding these sizes is crucial in systems programming, embedded development, and when optimizing memory usage.
-
----
-
-## Common Data Type Sizes
-
-### On a 32-bit OS -
-
-| Data Type | Typical Size (bytes) |
-|-----------|----------------------|
-| `char`    | 1                    |
-| `short`   | 2                    |
-| `int`     | 4                    |
-| `long`    | 4                    |
-| `float`   | 4                    |
-| `double`  | 8                    |
-| `pointer` | 4                    |
-
-### On a 64-bit OS -
-
-| Data Type | Typical Size (bytes) |
-|-----------|----------------------|
-| `char`    | 1                    |
-| `short`   | 2                    |
-| `int`     | 4                    |
-| `long`    | 8                    |
-| `float`   | 4                    |
-| `double`  | 8                    |
-| `pointer` | 8                    |
-
-> Note: The size of `int` often stays 4 bytes even on 64-bit systems for compatibility.
+The C build process (`.c` file to `.hex` or `.elf` file) involves several stages, handled by the **compiler toolchain**.
 
 ---
 
-## Using `sizeof()` in C
+## Stages in the Compilation Process
 
-C provides the `sizeof` operator to check the size of any data type or variable:
+Let’s break down the process from source code to executable binary:
 
-```c
-#include <stdio.h>
+---
 
-int main() {
-    printf("Size of int: %zu\n", sizeof(int));
-    printf("Size of pointer: %zu\n", sizeof(void*));
-    return 0;
-}
+### 1. **Preprocessing (`.c` → expanded source)**
+
+Handled by: **Preprocessor**
+
+```bash
+gcc -E main.c -o main.i
 ```
 
+- Expands #include files
+- Replaces macros (#define)
+- Handles conditional compilation (#ifdef, #ifndef)
+
+> Output: a .i file (intermediate expanded source)
+
+### 2. **Compilation (`.i` → Assembly)**
+
+Handled by: **Compiler proper**
+
+```bash
+gcc -S main.i -o main.s
+```
+
+- Converts the preprocessed code into assembly language
+- Architecture-specific (e.g., x86, ARM)
+
+> Output: .s file (human-readable assembly code)
+
+### 4. **Assembly (`.s` → Object Code)**
+
+Handled by: **Assembler**
+
+```bash
+gcc -c main.s -o main.o
+```
+
+- Translates assembly to machine code
+- Produces relocatable object files
+
+> Output: .o file (binary, not yet executable)
+
+### **Linking (`.o` → Executable or Binary Image)**
+
+Handled by: **Linker**
+
+```bash
+gcc main.o -o main.elf
+```
+
+- Combines multiple .o files and libraries
+- Resolves function calls, symbols, and memory layout
+- Outputs a complete binary (e.g., .elf, .exe, .bin)
+
+> Output: .elf file (Executable and Linkable Format)
+
+### 5. **Converting `.elf` to `.hex` for microcontrollers*
+
+Handled by: **Objcopy (GNU binutils)**
+
+```bash
+arm-none-eabi-objcopy -O ihex main.elf main.hex
+```
+
+- Converts to Intel HEX format, used for microcontroller flashing
+
 ---
 
-## Why Size Knowledge Matters (Especially in Embedded Systems)
+## Summary
 
-- Memory is limited in embedded systems — knowing exact sizes helps avoid over-allocation.
-- Aligning data properly can avoid bus faults and improve performance.
-- Helps in memory-mapped I/O, where you must match register size and layout exactly.
-- Required when interfacing with hardware or protocols that expect specific byte sizes.
-
----
-
-## Fixed-Width Types: using <stdint.h>
-
-To ensure portability and clarity, C provides fixed-width integer types in <stdint.h>:
-
-| Type	     | Description             |
-|------------|-------------------------|
-| `uint8_t`  | Unsigned 8-bit integer  |
-| `int16_t`	 | Signed 16-bit integer   |
-| `uint32_t` | Unsigned 32-bit integer |
-| `int64_t`  | Signed 64-bit integer   |
-
-These are especially useful when:
-
-- Writing cross-platform code
-- Defining exact-sized data in protocols or hardware registers
-- Avoiding surprises caused by varying int, long, etc. sizes
+<figure>
+ <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Compilation%20Process/toolchain.png">
+ <figcaption>Figure 1: Compiler Toolchain</figcaption>
+</figure>
