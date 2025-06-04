@@ -64,7 +64,7 @@ TIMx->CCR1 = duty_cycle_value;  // t_duty = ((t_on + t_off) / t_period) * 100
 ```
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/timers/pwm.png">
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Power%20and%20Timing/pwm.png">
   <figcaption>Figure 1: PWM generation</figcaption>
 </figure>
 
