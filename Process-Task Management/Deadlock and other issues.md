@@ -1,4 +1,4 @@
-# ⛔ Deadlocks, Starvation, and Priority Inversion
+# Deadlocks, Starvation, and Priority Inversion
 
 In concurrent systems, improper synchronization can lead to critical issues like **deadlocks**, **starvation**, and **priority inversion**. These problems disrupt the fair execution of processes and can severely impact system responsiveness or even cause hangs.
 
