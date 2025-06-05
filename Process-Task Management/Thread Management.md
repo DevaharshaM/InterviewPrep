@@ -10,7 +10,7 @@ The diagram below illustrates a typical thread lifecycle:
 
 <figure>
  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/lifecycle.png">
- <figcaption>Figure 1: Process lifecycle</figcaption>
+ <figcaption>Figure 1: Thread lifecycle</figcaption>
 </figure>
 
 ---
