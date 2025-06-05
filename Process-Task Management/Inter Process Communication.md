@@ -111,7 +111,7 @@ pthread_mutex_unlock(&lock);
 
 Occurs when multiple processes access shared data concurrently, leading to unpredictable results.
 
-2. Deadlock
+2. [Deadlock](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Deadlock%20and%20other%20issues.md)
 
 Happens when two or more processes wait indefinitely for each other to release resources.
 
