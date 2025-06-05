@@ -38,7 +38,7 @@ The **scheduler** makes these decisions based on a defined algorithm and manages
 ### Gantt Chart:
 
 <figure>
- <img src = "">
+ <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/gantt.png">
  <figcaption>Figure 1: Gantt Chart</figcaption>
 </figure>
 
