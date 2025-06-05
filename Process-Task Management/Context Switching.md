@@ -1,57 +1,79 @@
-# Understanding Programs, Processes, Tasks, and Threads
+# Context Switching
+
+**Context switching** is the process of storing and restoring the state (or context) of a CPU so that execution can be resumed from the same point at a later time. It enables an operating system to multitask by switching between different processes or threads.
 
 ---
 
-## What is a Program?
+## Why is Context Switching Needed?
 
-A program is a static file containing instructions written in a programming language (e.g., a .exe, .out, or .py file). It resides on disk and does nothing until executed.
+- To allow **multitasking** (multiple processes appear to run simultaneously)
+- To switch between **user processes** and **kernel tasks**
+- To share CPU time among **multiple threads** or **processes**
+- To implement **preemptive scheduling**
 
-## What is a Process?
+## What Gets Saved During a Context Switch?
 
-A process is a program in execution. It includes:
+When a context switch occurs, the following data is typically saved and restored:
 
-- Executable code
-- Current state (e.g., registers, program counter)
-- Stack, heap, and memory space
-- Open file descriptors and system resources
-
-Each process is independent and managed by the OS.
-
-## What is a Task?
-
-The term task is often used interchangeably with process or thread, depending on the context:
-
-- In some systems (e.g., Linux), it's a synonym for a process.
-- In real-time or embedded systems, a task may refer to a lightweight schedulable unit, often equivalent to a thread.
-
-## What is a Thread?
-
-A thread is the smallest unit of execution within a process. Multiple threads within the same process:
-
-- Share the same address space (heap, globals)
-- Have their own registers, stack, and program counter
-- Can run concurrently (parallelism or interleaving)
-
-Threads are lighter and more efficient to switch between than full processes.
+- Program Counter (PC)
+- CPU Registers
+- Stack Pointer (SP)
+- Process State (e.g., Ready, Waiting)
+- Memory Management Info (e.g., page tables)
 
 ---
 
-## Multithreading vs Multiprocessing
+## PCB and TCB
 
-| Feature	      | Multithreading	                      | Multiprocessing           |
-|-----------------|---------------------------------------|---------------------------|
-| Memory Space	  | Shared among threads	              | Separate for each process |
-| Overhead	      | Low	                                  | High                      |
-| Communication	  | Easy (shared memory)	              | Complex (IPC needed)      |
-| Fault Isolation |	Low (one thread crash can affect all) |	High (isolated processes) |
+### Process Control Block (PCB)
+
+Used when switching **between processes**. It stores:
+
+- Process ID (PID)
+- Register contents
+- Memory maps
+- File descriptors
+- CPU scheduling info
+
+### Thread Control Block (TCB)
+Used for switching **between threads**. It stores:
+
+- Thread ID (TID)
+- Thread state (Running, Waiting, etc.)
+- Program counter
+- Stack pointer
+- Registers (specific to the thread)
+- Scheduling priority
+
+> In many systems, **TCBs are embedded inside or linked to PCBs**, especially when using kernel-level threads.
 
 ---
 
-# Summary
+## Thread vs Process Switching
 
-| Term	  | Stored Where |	When Active	| Shares Memory?       | Lightweight? |
-|---------|--------------|--------------|----------------------|--------------|
-| Program |	Disk	     | Not yet	    | N/A	               | N/A          |
-| Process |	RAM	         | Yes	        | No	               | No           | 
-| Thread  |	RAM	         | Yes	        | Yes (within process) | Yes          |
-| Task	  | Varies	     | Yes	        | Depends              | Depends      |
+| Feature               | Process Switching          | Thread Switching          |
+|------------------------|-----------------------------|----------------------------|
+| Memory Space           | Different (full switch)     | Shared (within same process) |
+| Speed/Overhead         | Higher                      | Lower                      |
+| Requires MMU Context Switch | ✅                      | ❌ (if within same process) |
+
+---
+
+## Performance Impact
+
+- **Context switching is not free** — it introduces CPU overhead.
+- Involves:
+  - Saving/restoring registers
+  - Flushing and reloading CPU cache
+  - Possible memory management reloads (page tables)
+- Too many switches lead to **thrashing** or reduced throughput.
+
+---
+
+## Example
+
+Suppose Process A is running and its time slice expires. The OS will:
+1. Save A’s CPU state into its PCB.
+2. Select Process B from the ready queue.
+3. Load B’s state from its PCB into the CPU.
+4. Resume execution from where B left off.
