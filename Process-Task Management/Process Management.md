@@ -9,11 +9,11 @@ Process Management is a fundamental responsibility of the operating system. It i
 A process transitions through several well-defined states during its execution. The diagram below illustrates a typical process lifecycle:
 
 <figure>
- <img src = "">
+ <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/lifecycle.png">
  <figcaption>Figure 1: Process lifecycle</figcaption>
 </figure>
 
-Description of States:
+<br><br>Description of States:
 
 - New: Process is being created.
 - Ready: Process is ready to run, waiting for CPU allocation.
@@ -28,13 +28,11 @@ Description of States:
 A process can create another process using system calls provided by the OS. This results in a parent-child relationship between processes.
 
 On Unix-like systems:
-
 - fork() creates a new process (a copy of the current process).
 - exec() replaces the process image with a new program.
 - wait() pauses the parent until the child finishes.
 
 On Windows systems:
-
 - CreateProcess() is used to create a new process.
 
 ### Example:
