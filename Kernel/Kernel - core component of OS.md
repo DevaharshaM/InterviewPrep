@@ -1,15 +1,28 @@
-These are some of my **AI/ML** projects.
+# What is a Kernel?
+
 ---
 
-This repository contains the following branches:
+The Kernel is the core component of an operating system (OS). It acts as a bridge between software applications and the physical hardware of a computer. Its primary responsibility is to manage system resources, such as the CPU, memory, and I/O devices, ensuring that different programs and users operate efficiently and securely.
 
-1. [8-Queens](https://github.com/DevaharshaM/AI_Projects/tree/8_Queens)
-2. [Face Detection](https://github.com/DevaharshaM/AI_Projects/tree/Face_Detection)
-3. [Monty Hall](https://github.com/DevaharshaM/AI_Projects/tree/Monty_Hall)
-4. [Washing Machine](https://github.com/DevaharshaM/AI_Projects/tree/Washing_Machine)
-5. [Object Recognition](https://github.com/DevaharshaM/AI_Projects/tree/Object_Recognition)
-6. [Route Planning](https://github.com/DevaharshaM/AI_Projects/tree/Route_Planning)
-7. [Sentiment Analysis](https://github.com/DevaharshaM/AI_Projects/tree/Sentiment_Analysis)
-8. [Classification of handwritten digits](https://github.com/DevaharshaM/AI_Projects/tree/DNN)
-9. [Image generation using GAN](https://github.com/DevaharshaM/AI_Projects/tree/GAN)
-10. [Principal Component Analysis](https://github.com/DevaharshaM/AI_Projects/tree/PCA)
+## Key Functions of a Kernel:
+
+- **Process Management**: Creates, schedules, and terminates processes.
+- **Memory Management**: Allocates and deallocates memory space as needed.
+- **File System Management**: Provides a structured way to store and retrieve data on storage devices.
+- **Device Management**: Facilitates communication between software and hardware via device drivers.
+- **System Calls Handling**: Provides an interface for user applications to interact with hardware.
+
+## Types of Kernels:
+
+| Type	                | Description                                                                  |
+|-----------------------|------------------------------------------------------------------------------|
+| **Monolithic Kernel**	| All OS services run in the kernel space (e.g., Linux).                       |
+| **Microkernel**	      | Minimal set of services in kernel; rest run in user space (e.g., Minix, QNX).|
+| **Hybrid Kernel**	    | Combines elements of monolithic and microkernel (e.g., Windows NT, macOS).   |
+
+### Example-
+
+When you open a file, the kernel:
+1. Checks permissions
+2. Allocates memory for buffers
+3. Passes commands to the file system and device drivers
