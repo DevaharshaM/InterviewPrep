@@ -1,6 +1,6 @@
 # Process Management
 
-Process Management is a fundamental responsibility of the operating system. It involves handling the lifecycle and resources of processes to ensure efficient multitasking, stability, and fair use of the CPU and memory. 
+[Process](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Understanding%20important%20terms.md) Management is a fundamental responsibility of the operating system. It involves handling the lifecycle and resources of processes to ensure efficient multitasking, stability, and fair use of the CPU and memory. 
 
 ---
 
