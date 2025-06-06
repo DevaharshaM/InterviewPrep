@@ -67,22 +67,24 @@
       </div>`
   },
   {
-    front: "7. A system has 12 instances of a resource. Process A is holding 5 units, Process B is holding 4 units, and Process C is holding 2 units. If all three processes may need up to 7 units each, is the system in a safe state?",
-    back: `Not safe.
-          - **Total resources** = 12  
-          - **Allocated** = 5 (A) + 4 (B) + 2 (C) = 11  
-          - **Available** = 1
-          
-          ### Max additional needs:
-          - A may request 2 more (needs 7 - 5)
-          - B may request 3 more (needs 7 - 4)
-          - C may request 5 more (needs 7 - 2)
-          
-          **Only 1 is available. No process can finish.** 
-    <div class="more-link">
-        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Deadlock%20and%20other%20issues.md" target="_blank">More</a>
-      </div>`
-  }
+  front: "7. A system has 12 instances of a resource. Process A is holding 5 units, Process B is holding 4 units, and Process C is holding 2 units. If all three processes may need up to 7 units each, is the system in a safe state?",
+  back: `Not safe.<br>
+  <ul>
+    <li><strong>Total resources</strong> = 12</li>
+    <li><strong>Allocated</strong> = 5 (A) + 4 (B) + 2 (C) = 11</li>
+    <li><strong>Available</strong> = 1</li>
+  </ul>
+  <p><strong>Max additional needs:</strong></p>
+  <ul>
+    <li>A may request 2 more (7 - 5)</li>
+    <li>B may request 3 more (7 - 4)</li>
+    <li>C may request 5 more (7 - 2)</li>
+  </ul>
+  <p><strong>Only 1 is available. No process can finish.</strong></p>
+  <div class="more-link">
+    <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Deadlock%20and%20other%20issues.md" target="_blank">More</a>
+  </div>`
+}
 ];
 
     let currentCard = 0;
