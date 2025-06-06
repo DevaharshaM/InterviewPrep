@@ -43,7 +43,7 @@ To access memory, the OS uses a **mapping system** (usually paging) to convert *
 
 ### Components in Translation:
 
-- **Page Table**: Maps virtual pages to physical frames
+- [**Page Table**](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Paging%20and%20Segmentation.md): Maps virtual pages to physical frames
 - **MMU (Memory Management Unit)**: Hardware that performs the translation
 - **TLB (Translation Lookaside Buffer)**: A small, fast cache that stores recent virtual-to-physical translations
 
