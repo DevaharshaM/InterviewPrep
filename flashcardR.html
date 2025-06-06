@@ -28,14 +28,59 @@
     front: "1. What is Kernel?",
     back: `Baud rate is the number of signal changes (symbols) transmitted per second in a communication channel. It defines how fast data is transmitted or received.
       <div class="more-link">
-        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/type_qualifiers/README.md" target="_blank">More</a>
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Kernel/Kernel%20-%20core%20component%20of%20OS.md" target="_blank">More</a>
       </div>`
   },
   {
-    front: "2. What are CPOL and CPHA in SPI communication?",
-    back: `CPOL (Clock Polarity) and CPHA (Clock Phase) are SPI settings that define how data is sampled and shifted relative to the SPI clock signal.
+    front: "2. A process has 16-bit virtual addresses and uses 4KB pages. How many pages are in the process’s address space?",
+    back: `16 pages.
     <div class="more-link">
-        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/storage_class/README.md" target="_blank">More</a>
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Physical%20and%20Virtual%20memory.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "3. What is a page fault, and how is it handled?",
+    back: `A page fault occurs when a process accesses a page not currently in RAM. The OS loads the page from disk and may use a page replacement algorithm if RAM is full.
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Paging%20and%20Segmentation.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "4. What is the difference between a thread and a process?",
+    back: `A process has its own memory space; a thread shares memory with other threads in the same process. Threads are lighter and faster to switch.
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Understanding%20important%20terms.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "5. What is context switching and what does the OS save during it?",
+    back: `Context switching is the process of storing and restoring a CPU's state to switch between processes or threads. The OS saves registers, PC, and process state in PCB or TCB.
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Context%20Switching.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "6. What is a scheduling algorithm and which one is used in modern systems?",
+    back: `Scheduling algorithms determine how processes get CPU time. Modern systems like Linux use the Completely Fair Scheduler (CFS), which balances fairness and efficiency.
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Scheduling%20Algorithms.md" target="_blank">More</a>
+      </div>`
+  },
+  {
+    front: "7. A system has 12 instances of a resource. Process A is holding 5 units, Process B is holding 4 units, and Process C is holding 2 units. If all three processes may need up to 7 units each, is the system in a safe state?",
+    back: `Not safe.
+          - **Total resources** = 12  
+          - **Allocated** = 5 (A) + 4 (B) + 2 (C) = 11  
+          - **Available** = 1
+          
+          ### Max additional needs:
+          - A may request 2 more (needs 7 - 5)
+          - B may request 3 more (needs 7 - 4)
+          - C may request 5 more (needs 7 - 2)
+          
+          **Only 1 is available. No process can finish.** 
+    <div class="more-link">
+        <a href="https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Deadlock%20and%20other%20issues.md" target="_blank">More</a>
       </div>`
   }
 ];
