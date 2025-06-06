@@ -55,6 +55,10 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [IPC (Inter Process Communication)](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Inter%20Process%20Communication.md)
 - [Deadlock and other Issues](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Deadlock%20and%20other%20issues.md)
 
+### Memory Management
+- [Physical & Virtual Address](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Physical%20and%20Virtual%20memory.md) 
+- [Paging and Segmentation](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Paging%20and%20Segmentation.md)
+  
 ---
 
 _A mindful collection by **Devaharsha** | Shared for learning_
