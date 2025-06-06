@@ -13,7 +13,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [Memory Layout](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Memory%20Layout/Memory%20Layout%20in%20C.md)  
 - [Storage Classes](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Storage%20Classes/Storage%20Classes%20in%20C.md)  
 - [Type Qualifiers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Type%20Qualifiers/Type%20Qualifiers%20in%20C.md)  
-- [Data Types](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Types/Data%20Types%20in%20C.md)  
+- [Data Types](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Types/Data%20Types%20in%20C.md)
+- [User Defined Data Types](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Types/User-defined%20Data%20Types%20in%20C.md)
 - [Pointers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Pointers/Pointers.md)  
 
 ---
