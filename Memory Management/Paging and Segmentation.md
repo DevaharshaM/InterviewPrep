@@ -14,7 +14,7 @@ The **page table** is a critical data structure that maps **virtual pages** to *
 Each process has its own page table. The **Memory Management Unit (MMU)** uses it to translate addresses during execution.
 
 <figure>
- <img src = "">
+ <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/pagetable.png">
  <figcaption>Figure 1: Page table</figcaption>
 </figure>
 
