@@ -46,7 +46,7 @@ CAN has two primary frame types defined under CAN 2.0:
 | RTR                            |   1 bit     | Remote Transmission Request ('0' for Data Frame, '1' for Remote Frame) |
 | IDE                            |   1 bit     | Identifier Extension ('0' indicates standard frame )                   |
 | r0                             |   1 bit     | Received bit (Always '1' )                                             |
-| DLC (Data Lebgth Code)         |   4 bit     | Number of data bytes (0–8 )                                            |
+| DLC (Data Length Code)         |   4 bit     | Number of data bytes (0–8 )                                            |
 | Data                           | 0-8 bytes   | Actual data payload (0 to 8 bytes)                                     |
 | CRC (Cyclic Redundancy Check)  | 15 + 1 bits | CRC for error detection and a delimiter bit                            |
 | ACK (Acknowledgement)          | 1 + 1 bits  | One bit for ACK from receivers + delimiter                             |
@@ -72,7 +72,7 @@ CAN has two primary frame types defined under CAN 2.0:
 | RTR                            |   1 bit     | Remote Transmission Request ('0' for Data Frame, '1' for Remote Frame) |
 | r1                             |   1 bit     | Received bit (Always '1' )                                             |
 | r0                             |   1 bit     | Received bit (Always '1' )                                             |
-| DLC (Data Lebgth Code)         |   4 bit     | Number of data bytes (0–8 )                                            |
+| DLC (Data Lenth Code)          |   4 bit     | Number of data bytes (0–8 )                                            |
 | Data                           | 0-8 bytes   | Actual data payload (0 to 8 bytes)                                     |
 | CRC(Cyclic Redundancy Check)   | 15 + 1 bits | CRC for error detection and a delimiter bit                            |
 | ACK (Acknowledgement)          | 1 + 1 bits  | One bit for ACK from receivers + delimiter                             |
