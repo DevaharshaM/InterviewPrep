@@ -136,14 +136,29 @@ While rarely used in practice, I²C supports **multi-master operation** with bui
 
 ## Interrupt Pin for Event Notification
 
-Some I²C devices include a dedicated **INT pin** to signal events like "data ready" or threshold alerts, allowing the MCU to remain in low power mode until needed.
+Many I²C peripherals provide a separate **INT pin** to notify the microcontroller when data is ready or a threshold is crossed.
+
+- Allows the MCU to **wait in sleep mode** and react only on interrupt
+- Common in sensors (e.g., accelerometers, proximity sensors)
+- Reduces I²C bus traffic and improves power efficiency
+
+> This pin is **not part of the I²C protocol**, but enhances performance in interrupt-driven designs.
 
 ## SMBus Compatibility
 
-**SMBus** is a stricter I²C variant used in power/battery management (e.g., smart batteries, chargers). Most I²C masters can talk to SMBus devices with minor timing considerations.
+**SMBus** is a variant of I²C used in laptops, batteries, and power systems (e.g., fuel gauges, smart chargers).
+
+- Stricter electrical & timing specs
+- Defines standard commands (e.g., block read/write)
+- Often used in conjunction with **PMBus** for power control
+
+> Most I²C controllers can communicate with SMBus devices with minimal changes.
 
 ## 10-bit Addressing Support
 
-I²C supports **10-bit addressing** for systems with more than 127 devices. It's rarely used, and not all MCUs support it natively.
+While most I²C devices use **7-bit addresses**, the protocol also supports **10-bit addressing** for larger device ecosystems.
+
+- First byte includes special `11110xx` prefix
+- Rarely used — not all masters support it
 
 > These extended features make I²C flexible for low-power, multi-sensor, and power-aware systems — not just simple data transfer.
