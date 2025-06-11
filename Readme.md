@@ -31,7 +31,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 ### Communication
 - [Communication Basics](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md)  
 - [UART (Universal Asynchronous Receiver/Transmitter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/UART%20(Universal%20Asynchronous%20Receiver%20Transmitter).md)  
-- I2C (Inter-Integrated Circuit)  
+- [I2C (Inter-Integrated Circuit)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/I2C%20(Inter-Integrated%20Circuit).md)
 - SPI (Serial Peripheral Interface)  
 - [CAN (Controller Area Network)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/CAN%20(Controller%20Area%20Network).md)  
 - USB (Universal Serial Bus)  
