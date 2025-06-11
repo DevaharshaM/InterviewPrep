@@ -1,163 +1,149 @@
-# UART – Universal Asynchronous Receiver/Transmitter
+# I²C – Inter-Integrated Circuit
 
-UART is a widely used [serial communication](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md) protocol in embedded systems. It is simple, asynchronous, and ideal for point-to-point data transfer over short distances.
+I²C (pronounced “I-squared-C” or “I-two-C”) is a [**synchronous**](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md), **multi-master**, **two-wire** communication protocol developed by Philips. It is widely used for short-distance communication between microcontrollers and peripherals like sensors, RTCs, and EEPROMs.
 
 ---
 
 ## Key Characteristics
 
-- **Type**: Serial, Asynchronous
-- **Lines Used**: TX (Transmit), RX (Receive), GND
-- **Direction**: Full-duplex (transmit and receive simultaneously)
-- **Clock**: Not shared; relies on internal timing
+- **Type**: Serial, Synchronous
+- **Lines Used**: SDA (Data), SCL (Clock)
+- **Speed Modes**:
+  - Standard: 100 kbps
+  - Fast: 400 kbps
+  - Fast Plus: 1 Mbps
+  - High-Speed: 3.4 Mbps
+- **Topology**: Typically single-master, multi-slave (spec supports multi-master with arbitration)
+- **Pull-ups required** on both SDA and SCL
 
 ---
 
-### UART Wiring Diagram
+## How It Works
+
+I²C uses a **shared bus** with two lines:
+- **SDA**: Serial Data Line (bidirectional)
+- **SCL**: Serial Clock Line (controlled by the master)
+
+### I²C Wiring Diagram 
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/blockUART.png">
-  <figcaption>Figure 1: UART Block Diagram</figcaption>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/blockI2C.png">
+  <figcaption>Figure 1: I2C Block Diagram</figcaption>
 </figure>
 
----
-
-## What is Baud Rate?
-
-**Baud rate** is the number of **signal transitions (symbols)** transmitted per second over a communication channel.
-
-- In UART, **one symbol typically equals one bit**, so the baud rate often equals the bit rate.
-- For example, a baud rate of `9600` means **9600 bits per second** are transmitted.
-
-### Key Points:
-- **Symbol ≠ Bit** in general communication theory — but **in UART**, they are usually the same.
-- **Both transmitter and receiver** must use the same baud rate to correctly interpret data.
-- Common values: `9600`, `19200`, `38400`, `115200`, `1,000,000` (1M) bps.
-
-### Why Baud Rate Matters:
-- If the baud rate is mismatched between devices, **data corruption** occurs — the receiver will misread where bits start and stop.
-- Higher baud rates allow **faster communication** but are more sensitive to noise and clock inaccuracies.
-
-### Example:
-At `9600` baud, one bit is transmitted every **104.17 microseconds**.
+> The master controls both data and clock lines, while multiple slaves listen and respond based on addressing.
 
 ---
 
-## Frame Format
+## I²C Frame Format
 
-A typical UART data frame:
+A standard I²C data transfer consists of a **start condition**, followed by **address and data phases**, with **ACK/NACK bits** in between, and ends with a **stop condition**.
+
+### I²C Frame Format
 
 <figure>
-  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameUART.png">
-  <figcaption>Figure 2: UART Frame Format</figcaption>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/frameI2C.png">
+  <figcaption>Figure 2: I2C Frame Format</figcaption>
 </figure>
 
-<br>A typical UART data frame includes:
-
-- **Start Bit**: Signals the beginning of transmission (always LOW)
-- **Data Bits**: Typically 8 bits
-- **Parity Bit** (optional): For basic error checking
-- **Stop Bit(s)**: Signals the end of transmission (always HIGH)
-
-> Example format: **8N1** = 8 data bits, No parity, 1 stop bit
-
----
-
-## Advantages
-
-- Simple hardware and software implementation
-- Fewer wires are needed
-- Ideal for debugging and diagnostics (serial terminals)
+<br><br>Here’s a breakdown of each field:
+| Field             | Size      | Description                                                                 |
+|------------------|-----------|-----------------------------------------------------------------------------|
+| **START**        | 1 bit     | Indicates beginning of communication (SDA goes LOW while SCL is HIGH)      |
+| **Slave Address**| 7 or 10 bits | Unique ID of the target device on the bus                                  |
+| **R/W Bit**      | 1 bit     | `0` = Write, `1` = Read                                                      |
+| **ACK/NACK**     | 1 bit     | Receiver pulls SDA LOW to acknowledge (`ACK`) or keeps HIGH for NACK       |
+| **Data Byte**    | 8 bits    | Actual payload byte sent/received                                           |
+| **ACK/NACK**     | 1 bit     | Acknowledgment after each byte                                              |
+| **STOP**         | 1 bit     | SDA goes HIGH while SCL is HIGH, ending the transaction                     |
 
 ---
 
-## Limitations
+## Start and Stop Conditions
 
-- No built-in addressing (point-to-point only)
-- Not suitable for multi-master or multi-slave systems
-- Slower than synchronous protocols like SPI
+The **start and stop conditions** are special states that signal the beginning and end of an I²C transaction.
 
----
+<figure>
+  <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/conditionI2C.png">
+  <figcaption>Figure 3: I2C START-STOP Conditions Timing Diagram</figcaption>
+</figure>
 
-## Common Applications
 
-- Serial terminals (e.g., PuTTY, Tera Term)
-- GPS receivers
-- Bluetooth modules (e.g., HC-05)
-- MCU serial prints
 
----
-
-# Bonus: USART protocol
-
-**USART** stands for **Universal Synchronous/Asynchronous Receiver/Transmitter**. It is a more versatile version of UART found in many microcontrollers (e.g., STM32, AVR).
-
-### How is it different from UART?
-
-| Feature         | UART                         | USART                            |
-|------------------|-------------------------------|------------------------------------|
-| Clock Line       | No (asynchronous only)        | Optional (can operate synchronously) |
-| Communication    | Asynchronous only             | Asynchronous **and** synchronous  |
-| Flexibility      | Fixed                         | More configurable                 |
-
-### Synchronous Mode in USART:
-
-In **synchronous mode**, USART can:
-- Share a **common clock line** with another device
-- Operate similarly to SPI (but slower and with different framing)
-- Transmit data with higher timing accuracy
-
-> Many applications still use USART in **asynchronous mode only**, effectively acting like UART.
+- **Start condition**: SDA goes LOW while SCL is HIGH  
+- **Stop condition**: SDA goes HIGH while SCL is HIGH
 
 ---
 
-# Bonus: Physical Layer Standards
+## Basic Data Transfer Flow
 
-UART by itself is just a **digital logic-level protocol** (typically 3.3V or 5V). To communicate over longer distances or to external devices, UART is often paired with **physical layer standards** like RS-232 or RS-485.
+Once communication is initiated, the flow typically looks like this:
 
----
+1. **Master sends START**
+2. **Master sends 7-bit address + R/W bit**
+3. **Slave acknowledges**
+4. **Master or slave sends/receives data byte(s)**
+5. **ACK/NACK exchanged after each byte**
+6. **Master sends STOP**
 
-### RS-232
-
-- Oldest and most widely known serial standard.
-- Common in PCs (legacy COM ports), GPS modules, modems.
-
-| Feature         | RS-232                      |
-|------------------|-----------------------------|
-| Signal Type     | Single-ended                |
-| Voltage Levels  | ±3V to ±15V                 |
-| Max Distance    | ~15 meters                  |
-| Max Devices     | 1:1 communication only       |
-| Cable           | DB9/DB25 connectors         |
-
-> Requires a level shifter (e.g., **MAX232**) to connect RS-232 to a UART-capable MCU.
+> This process can repeat if multiple bytes are to be transferred in sequence.
 
 ---
 
-### RS-485
+## Clock Stretching
 
-- Robust industrial standard, especially in noisy environments and long cable runs.
-- Common in automation (Modbus RTU), HVAC, motor control.
+**Clock stretching** allows a slave to **hold the SCL line LOW** to delay the master from continuing.
 
-| Feature         | RS-485                      |
-|------------------|-----------------------------|
-| Signal Type     | Differential (A/B lines)    |
-| Voltage Levels  | Typically ±1.5V to ±5V      |
-| Max Distance    | Up to 1200 meters           |
-| Max Devices     | 32+ (multi-drop network)    |
-| Mode            | Half-duplex or full-duplex  |
+### Why It's Needed:
+- Some slaves (like EEPROMs or sensors) may need more time to prepare data.
+- Master must monitor the clock line before sending the next bit.
 
-> RS-485 requires external transceivers (e.g., **MAX485**) and usually implements **half-duplex UART** communication.
+> Clock stretching is optional — not all masters support it well.
 
 ---
 
-### Summary Table
+## Arbitration in I²C (Multi-Master Capability)
 
-| Feature        | RS-232       | RS-485            |
-|----------------|--------------|-------------------|
-| Distance       | ~15 m        | ~1200 m           |
-| Devices        | 2 (point-to-point) | 32+ (multi-drop) |
-| Signaling      | Single-ended | Differential      |
-| Noise Immunity | Low          | High              |
-| Use Case       | Legacy PCs, GPS | Industrial, Modbus |
+While rarely used in practice, I²C supports **multi-master operation** with built-in arbitration:
 
+- If two masters transmit at once, each watches SDA.
+- If a master sends a HIGH (recessive) but sees a LOW (dominant), it **loses arbitration** and stops.
+- The transaction continues non-destructively by the winning master.
+
+> This makes I²C multi-master safe, though most systems still use **single-master** setups.
+
+---
+
+## Advantages of I²C
+
+- Only **two wires** needed regardless of slave count
+- Supports **multiple devices** via addressing
+- Works well for **low-speed communication**
+- **Standardized protocol** with wide MCU and peripheral support
+- Built-in **ACK/NACK** and arbitration handling
+
+## Limitations of I²C
+
+- Limited speed compared to SPI
+- **Bus capacitance** and pull-up resistors limit distance and device count
+- Slower response due to shared bus
+- Risk of **bus lock-up** if a slave holds SDA low
+- Requires **careful timing and software handling** for robust systems
+
+  ---
+
+# Bonus: Advanced and Practical I²C Features
+
+## Interrupt Pin for Event Notification
+
+Some I²C devices include a dedicated **INT pin** to signal events like "data ready" or threshold alerts, allowing the MCU to remain in low power mode until needed.
+
+## SMBus Compatibility
+
+**SMBus** is a stricter I²C variant used in power/battery management (e.g., smart batteries, chargers). Most I²C masters can talk to SMBus devices with minor timing considerations.
+
+## 10-bit Addressing Support
+
+I²C supports **10-bit addressing** for systems with more than 127 devices. It's rarely used, and not all MCUs support it natively.
+
+> These extended features make I²C flexible for low-power, multi-sensor, and power-aware systems — not just simple data transfer.
