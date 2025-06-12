@@ -34,11 +34,18 @@ Understanding display technology is key to working with LCDs, OLEDs, and graphic
 
 ## 4. Color Formats
 
+> **R**, **G**, **B**: Color channels (Red, Green, Blue), **A** (Alpha): Transparency channel (0 = fully transparent, 255 = fully opaque)
 - **Monochrome**: 1 bit per pixel (on/off)
 - **Grayscale**: 2–8 bits per pixel
 - **RGB332**: 8 bits total (3 red, 3 green, 2 blue)
 - **RGB565**: 16 bits total (5 red, 6 green, 5 blue)
 - **RGB888**: 24 bits total (8 bits per channel)
+- **RGBA / ARGB (with Alpha)**: 24 or 32 bits per pixel
+- Common formats:
+    - **ARGB8888**: 8 bits per channel = 32 bits total
+    - **RGBA4444**: 4 bits per channel = 16 bits total
+
+> Alpha is mostly used in **GUI rendering** (like touchscreens or overlays) and **layered interfaces**.
 
 > RGB565 is widely used in embedded LCDs — good balance between color and memory usage
 
