@@ -36,6 +36,13 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [CAN (Controller Area Network)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/CAN%20(Controller%20Area%20Network).md)  
 - USB (Universal Serial Bus)  
 
+### Networking & Connectivity
+- OSI Model (Open Systems Interconnection)
+- TCP/IP Model
+- Ethernet
+- Bluetooth
+- Wi-Fi (Wireless Fidelity)
+
 ### Display Interfaces
 - Parallel RGB  
 - MIPI-DSI (Mobile Industry Processor Interface – Display Serial Interface)  
