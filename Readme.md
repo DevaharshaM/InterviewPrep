@@ -55,7 +55,6 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [Kernel](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Kernel/Kernel%20-%20core%20component%20of%20OS.md)
 
  ### Task Management
-- [Basics](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Understanding%20important%20terms.md) 
 - [Process Management](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Process%20Management.md) 
 - [Thread Management](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Thread%20Management.md) 
 - [Scheduling Algorithms](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Process-Task%20Management/Scheduling%20Algorithms.md) 
