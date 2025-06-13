@@ -28,8 +28,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 ### Interrupts
 - [ISR (Interrupt Service Routine)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Interrupts/Interrupts.md)
 
-### Communication
-- [Communication Basics](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/Communication%20basics.md)  
+### Communication 
 - [UART (Universal Asynchronous Receiver/Transmitter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/UART%20(Universal%20Asynchronous%20Receiver%20Transmitter).md)  
 - [I2C (Inter-Integrated Circuit)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/I2C%20(Inter-Integrated%20Circuit).md)
 - [SPI (Serial Peripheral Interface)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/SPI%20(Serial%20Peripheral%20Interface).md)  
@@ -44,7 +43,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - Wi-Fi (Wireless Fidelity)
 
 ### Display Interfaces
-- Parallel RGB  
+- [Common Interfaces](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/Common%20Interfaces.md)
+- [Parallel RGB](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/Parallel%20RGB.md)  
 - MIPI-DSI (Mobile Industry Processor Interface – Display Serial Interface)  
 
 ---
