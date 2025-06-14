@@ -16,7 +16,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [Type Qualifiers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Type%20Qualifiers/Type%20Qualifiers%20in%20C.md)  
 - [Data Types](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Types/Data%20Types%20in%20C.md)
 - [User Defined Data Types](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Types/User-defined%20Data%20Types%20in%20C.md)
-- [Pointers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Pointers/Pointers.md)  
+- [Pointers](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Pointers/Pointers.md)
+- [Data Structures](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Structures/Data%20Structures%20%20in%20C.md)
 
 ### Code
 
