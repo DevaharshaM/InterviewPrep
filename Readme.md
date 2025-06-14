@@ -45,7 +45,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 ### Display Interfaces
 - [Common Interfaces](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/Common%20Interfaces.md)
 - [Parallel RGB](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/Parallel%20RGB.md)  
-- MIPI-DSI (Mobile Industry Processor Interface – Display Serial Interface)  
+- [MIPI-DSI (Mobile Industry Processor Interface – Display Serial Interface)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/dsi.md)  
 
 ---
 
