@@ -76,7 +76,7 @@ A **tree** is a hierarchical data structure with a root node and children.
 - Expression trees in compilers
 - Decision trees in AI
 
-### Binary Tree
+### a) Binary Tree
 
 A **binary tree** is a special tree where each node has at most two children: left and right.
 
