@@ -15,7 +15,7 @@ DAC enables the microcontroller to **interface with the analog world** by synthe
 
 ---
 
-## 🔍 Basic Formula
+## Basic Formula
 
 For an **N-bit DAC** with reference voltage `Vref`:
 
@@ -42,7 +42,7 @@ Output = (128 / 255) × 3.3V ≈ 1.65V
 
 ---
 
-## Common DAC Architectures
+## Types of DACs
 
 | Type            | Principle                                    | Use Case                    |
 |-----------------|----------------------------------------------|-----------------------------|
