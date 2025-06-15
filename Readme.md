@@ -76,6 +76,10 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 ### Memory Management
 - [Physical & Virtual Address](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Physical%20and%20Virtual%20memory.md) 
 - [Paging and Segmentation](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/Memory%20Management/Paging%20and%20Segmentation.md)
+
+### File System Management
+- [File System](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/File%20System%20Management/File%20System.md)
+- [Disk Scheduling Algorithms](https://github.com/DevaharshaM/InterviewPrep/blob/realtimeOS/File%20System%20Management/Disk%20Scheduling%20Algorithms.md)
   
 ---
 
