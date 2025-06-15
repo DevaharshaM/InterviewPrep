@@ -33,8 +33,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [ISR (Interrupt Service Routine)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Interrupts/Interrupts.md)
 
 ### Converters
-- ADC (Analog-to-Digital Converter)
-- DAC (Digital-to-Analog Converter)
+- [ADC (Analog-to-Digital Converter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Converters/ADC%20(Analog-to-Digital%20Converter).md)
+- [DAC (Digital-to-Analog Converter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Converters/DAC%20(Digital-to-Analog%20Converter).md)
   
 ### Communication 
 - [UART (Universal Asynchronous Receiver/Transmitter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/UART%20(Universal%20Asynchronous%20Receiver%20Transmitter).md)  
