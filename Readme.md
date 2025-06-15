@@ -37,7 +37,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [DAC (Digital-to-Analog Converter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Converters/DAC%20(Digital-to-Analog%20Converter).md)
 
 ### DMA
-- DMA (Direct Memory Access)
+- [DMA (Direct Memory Access)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/DMA/DMA%20(Direct%20Memory%20Access).md)
   
 ### Communication 
 - [UART (Universal Asynchronous Receiver/Transmitter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/UART%20(Universal%20Asynchronous%20Receiver%20Transmitter).md)  
