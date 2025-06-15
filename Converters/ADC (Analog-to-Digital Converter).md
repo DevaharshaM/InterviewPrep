@@ -1,85 +1,73 @@
-# Polling vs Interrupts in Embedded Systems
+# ADC – Analog to Digital Converter
 
-Polling and interrupts are two methods used to **detect and respond to events** in embedded systems, such as a button press, data arrival, or a timer overflow.
-
----
-
-## Polling
-
-In polling, the CPU **continuously checks** (or "polls") a peripheral or status register in a loop.
-
-### Characteristics:
-- **Blocking**: CPU is occupied until event occurs.
-- **Predictable**: Easy to implement and debug.
-- **Inefficient**: Wastes CPU cycles if no event is pending.
-
-### Example:
-```c
-while (1) {
-  if (UART_Ready()) {
-    char c = UART_Read();
-    // process data
-  }
-}
-```
-
-## Interrupts
-
-In interrupt-driven systems, the CPU executes other tasks until the peripheral signals an event via an interrupt. The CPU then pauses its work to handle it.
-
-### Characteristics:
-- **Efficient**: CPU can sleep or do other work until needed.
-- **Asynchronous**: Responds only when events occur.
-- **Requires ISR**: A handler function is triggered when interrupt occurs.
-
-### Example:
-```c
-void USART1_IRQHandler(void) {
-  char c = USART_Read();
-  // process character
-}
-```
-
-## Polling vs Interrupts
-
-| Feature          |	Polling	                    | Interrupts                         |
-|------------------|------------------------------|------------------------------------|
-| CPU Utilization  |	High (wasted cycles)        |	Low (only wakes when needed)       |
-| Response Time	   | Can be delayed (loop time)   | Immediate (ISR triggered)          |
-| Complexity       |	Low	                        | Medium (ISR management needed)     |
-| Use Case         |	Fast-check, real-time loops |	Asynchronous events, low-power MCUs|
-
-## When to Use What?
-
-- Polling:<br>
-o When the event occurs frequently and predictably<br>
-o Simpler logic or in systems without interrupts<br>
-o Very time-critical polling (e.g., ultra-fast ADC sampling)
-
-- Interrupts:<br>
-o When power saving is important (CPU can sleep)<br>
-o For asynchronous or rare events (e.g., button press)<br>
-o In multitasking or time-shared systems
-
->  In practice, many systems use a combination: polling for time-critical tasks, interrupts for asynchronous events.
+An **Analog to Digital Converter (ADC)** is used to convert real-world analog signals (like voltage or current) into digital values that can be processed by a microcontroller.
 
 ---
 
-# Interrupt Service Routines (ISR) 
+## Why Do We Need ADC?
 
-An **Interrupt Service Routine (ISR)** is a special function that is **executed automatically** in response to an interrupt signal from hardware or a peripheral.
-
-When an interrupt occurs:
-1. The current program execution is paused.
-2. The corresponding ISR is executed.
-3. The program resumes from where it left off.
+Microcontrollers operate on digital logic. However, most real-world inputs (temperature, sound, light, etc.) are analog in nature. The ADC enables a digital system to **understand and react to analog events**.
 
 ---
 
-## Key Properties of ISRs
+## Basic Formula
 
-- **No return value**: ISRs are typically declared `void`.
-- **Cannot take arguments**
-- **Should execute quickly**: Long ISRs block other interrupts or tasks.
-- **Registers & flags may need manual clearing**, depending on the hardware.
-- **Interrupt flags must often be cleared in the ISR**, or it may retrigger endlessly.
+For an **N-bit ADC** and a reference voltage `Vref`:
+
+Digital Output = (Vin / Vref) × (2^N - 1)
+
+- `Vin`: Input analog voltage  
+- `Vref`: Reference voltage (maximum measurable voltage)  
+- `N`: Resolution of the ADC (e.g., 10-bit, 12-bit)
+
+**Example**:  
+With a 10-bit ADC, `Vref = 3.3V`, and `Vin = 1.65V`:  
+Output = (1.65 / 3.3) × 1023 = 512
+
+---
+
+## How Does ADC Work?
+
+1. **Sample**: The analog signal is captured (sampled) at a specific time.  
+2. **Hold**: The signal is held steady using a Sample and Hold (S/H) circuit.  
+3. **Quantize**: The voltage range is divided into discrete digital levels.  
+4. **Encode**: The closest level is encoded into a binary number.
+
+This process is typically controlled by:
+- A **Start Conversion** trigger (software or timer)
+- A selected **input channel** (ADC pin)
+- A **reference voltage** (internal or external)
+- An **ADC clock** for conversion timing
+
+---
+
+## Resolution and Step Size
+
+| Bits | Levels | Step Size (for 3.3V) |
+|------|--------|----------------------|
+| 8    | 256    | ~12.9 mV             |
+| 10   | 1024   | ~3.22 mV             |
+| 12   | 4096   | ~0.81 mV             |
+| 16   | 65536  | ~0.05 mV             |
+
+> Higher resolution gives finer voltage measurement, but requires more time and memory.
+
+---
+
+## Types of ADCs
+
+| Type                       | Principle                            | Use Cases                     |
+|----------------------------|--------------------------------------|-------------------------------|
+| **SAR (Successive Approximation)** | Binary search comparison | Most MCUs (e.g., STM32, AVR)  |
+| **Delta-Sigma**            | Oversampling and noise shaping       | Audio, sensors (slow + precise) |
+| **Flash**                  | Parallel comparators (very fast)     | Oscilloscopes, RF sampling    |
+| **Dual-Slope**             | Integration over time                | Digital multimeters           |
+
+---
+
+## Applications
+
+- Sensor interfacing (temperature, pressure, light)
+- Battery voltage monitoring
+- Audio input for DSP
+- Touchscreens and capacitive sensing
