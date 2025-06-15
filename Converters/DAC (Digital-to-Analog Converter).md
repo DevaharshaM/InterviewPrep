@@ -1,85 +1,72 @@
-# Polling vs Interrupts in Embedded Systems
+# DAC – Digital to Analog Converter
 
-Polling and interrupts are two methods used to **detect and respond to events** in embedded systems, such as a button press, data arrival, or a timer overflow.
-
----
-
-## Polling
-
-In polling, the CPU **continuously checks** (or "polls") a peripheral or status register in a loop.
-
-### Characteristics:
-- **Blocking**: CPU is occupied until event occurs.
-- **Predictable**: Easy to implement and debug.
-- **Inefficient**: Wastes CPU cycles if no event is pending.
-
-### Example:
-```c
-while (1) {
-  if (UART_Ready()) {
-    char c = UART_Read();
-    // process data
-  }
-}
-```
-
-## Interrupts
-
-In interrupt-driven systems, the CPU executes other tasks until the peripheral signals an event via an interrupt. The CPU then pauses its work to handle it.
-
-### Characteristics:
-- **Efficient**: CPU can sleep or do other work until needed.
-- **Asynchronous**: Responds only when events occur.
-- **Requires ISR**: A handler function is triggered when interrupt occurs.
-
-### Example:
-```c
-void USART1_IRQHandler(void) {
-  char c = USART_Read();
-  // process character
-}
-```
-
-## Polling vs Interrupts
-
-| Feature          |	Polling	                    | Interrupts                         |
-|------------------|------------------------------|------------------------------------|
-| CPU Utilization  |	High (wasted cycles)        |	Low (only wakes when needed)       |
-| Response Time	   | Can be delayed (loop time)   | Immediate (ISR triggered)          |
-| Complexity       |	Low	                        | Medium (ISR management needed)     |
-| Use Case         |	Fast-check, real-time loops |	Asynchronous events, low-power MCUs|
-
-## When to Use What?
-
-- Polling:<br>
-o When the event occurs frequently and predictably<br>
-o Simpler logic or in systems without interrupts<br>
-o Very time-critical polling (e.g., ultra-fast ADC sampling)
-
-- Interrupts:<br>
-o When power saving is important (CPU can sleep)<br>
-o For asynchronous or rare events (e.g., button press)<br>
-o In multitasking or time-shared systems
-
->  In practice, many systems use a combination: polling for time-critical tasks, interrupts for asynchronous events.
+A **Digital to Analog Converter (DAC)** performs the reverse operation of an ADC — it takes a digital value (binary number) and converts it into a corresponding analog voltage or signal.
 
 ---
 
-# Interrupt Service Routines (ISR) 
+## Why Do We Need DAC?
 
-An **Interrupt Service Routine (ISR)** is a special function that is **executed automatically** in response to an interrupt signal from hardware or a peripheral.
+Embedded systems often need to **generate analog outputs**, such as:
+- Audio waveforms
+- Variable voltages for control
+- Analog reference signals
 
-When an interrupt occurs:
-1. The current program execution is paused.
-2. The corresponding ISR is executed.
-3. The program resumes from where it left off.
+DAC enables the microcontroller to **interface with the analog world** by synthesizing smooth, continuous waveforms from discrete digital data.
 
 ---
 
-## Key Properties of ISRs
+## 🔍 Basic Formula
 
-- **No return value**: ISRs are typically declared `void`.
-- **Cannot take arguments**
-- **Should execute quickly**: Long ISRs block other interrupts or tasks.
-- **Registers & flags may need manual clearing**, depending on the hardware.
-- **Interrupt flags must often be cleared in the ISR**, or it may retrigger endlessly.
+For an **N-bit DAC** with reference voltage `Vref`:
+
+Analog Output = (Digital Input / (2^N - 1)) × Vref
+
+- `Digital Input`: Binary number sent to DAC (e.g., 0 to 255 for 8-bit)
+- `Vref`: The maximum analog output voltage
+- `N`: DAC resolution in bits
+
+**Example**:  
+8-bit DAC with `Vref = 3.3V`, digital input = 128  
+Output = (128 / 255) × 3.3V ≈ 1.65V
+
+---
+
+## Key Parameters
+
+| Term             | Meaning                                      |
+|------------------|----------------------------------------------|
+| **Resolution**   | Number of bits (e.g., 8-bit, 12-bit)         |
+| **Settling Time**| Time to stabilize to final output voltage    |
+| **Glitch Energy**| Spikes during code transitions               |
+| **Linearity**    | How evenly the output steps scale            |
+
+---
+
+## Common DAC Architectures
+
+| Type            | Principle                                    | Use Case                    |
+|-----------------|----------------------------------------------|-----------------------------|
+| **R-2R Ladder** | Uses resistors in a ladder network           | Most MCUs (basic output)    |
+| **Weighted Resistor** | Uses different resistors per bit       | Older/simple implementations |
+| **Delta-Sigma** | Converts digital input into high-rate stream | Audio-grade output          |
+| **PWM + Filter**| Not a true DAC, but simulates one using PWM  | Low-cost analog output      |
+
+> Note: **PWM-based DAC** is popular in MCUs without a true DAC (using a low-pass RC filter).
+
+---
+
+## How DAC Works
+
+1. Digital value is written to a DAC register
+2. Internal circuitry (e.g., resistor network or modulator) generates equivalent voltage
+3. Analog voltage is output on DAC pin
+4. Can be updated continuously to generate waveforms (sine, triangle, etc.)
+
+---
+
+## Applications
+
+- Audio signal generation (e.g., MP3 playback)
+- DC voltage control (for op-amp circuits or reference signals)
+- Signal generation (sine, square, ramp)
+- Motor control and dimming (via analog signals)
