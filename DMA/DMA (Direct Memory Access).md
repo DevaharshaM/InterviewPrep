@@ -1,85 +1,71 @@
-# Polling vs Interrupts in Embedded Systems
+# DMA – Direct Memory Access
 
-Polling and interrupts are two methods used to **detect and respond to events** in embedded systems, such as a button press, data arrival, or a timer overflow.
-
----
-
-## Polling
-
-In polling, the CPU **continuously checks** (or "polls") a peripheral or status register in a loop.
-
-### Characteristics:
-- **Blocking**: CPU is occupied until event occurs.
-- **Predictable**: Easy to implement and debug.
-- **Inefficient**: Wastes CPU cycles if no event is pending.
-
-### Example:
-```c
-while (1) {
-  if (UART_Ready()) {
-    char c = UART_Read();
-    // process data
-  }
-}
-```
-
-## Interrupts
-
-In interrupt-driven systems, the CPU executes other tasks until the peripheral signals an event via an interrupt. The CPU then pauses its work to handle it.
-
-### Characteristics:
-- **Efficient**: CPU can sleep or do other work until needed.
-- **Asynchronous**: Responds only when events occur.
-- **Requires ISR**: A handler function is triggered when interrupt occurs.
-
-### Example:
-```c
-void USART1_IRQHandler(void) {
-  char c = USART_Read();
-  // process character
-}
-```
-
-## Polling vs Interrupts
-
-| Feature          |	Polling	                    | Interrupts                         |
-|------------------|------------------------------|------------------------------------|
-| CPU Utilization  |	High (wasted cycles)        |	Low (only wakes when needed)       |
-| Response Time	   | Can be delayed (loop time)   | Immediate (ISR triggered)          |
-| Complexity       |	Low	                        | Medium (ISR management needed)     |
-| Use Case         |	Fast-check, real-time loops |	Asynchronous events, low-power MCUs|
-
-## When to Use What?
-
-- Polling:<br>
-o When the event occurs frequently and predictably<br>
-o Simpler logic or in systems without interrupts<br>
-o Very time-critical polling (e.g., ultra-fast ADC sampling)
-
-- Interrupts:<br>
-o When power saving is important (CPU can sleep)<br>
-o For asynchronous or rare events (e.g., button press)<br>
-o In multitasking or time-shared systems
-
->  In practice, many systems use a combination: polling for time-critical tasks, interrupts for asynchronous events.
+**Direct Memory Access (DMA)** is a hardware feature that allows data to be transferred **between memory and peripherals (or between memory locations)** without CPU intervention.
 
 ---
 
-# Interrupt Service Routines (ISR) 
+## Why Do We Need DMA?
 
-An **Interrupt Service Routine (ISR)** is a special function that is **executed automatically** in response to an interrupt signal from hardware or a peripheral.
+Normally, the CPU handles every data transfer — for example, reading from ADC and storing the result in memory. But doing this repeatedly wastes CPU time.
 
-When an interrupt occurs:
-1. The current program execution is paused.
-2. The corresponding ISR is executed.
-3. The program resumes from where it left off.
+With DMA:
+- Data transfers happen **in the background**
+- CPU is **free to perform other tasks**
+- Improves efficiency and responsiveness
 
 ---
 
-## Key Properties of ISRs
+## How DMA Works
 
-- **No return value**: ISRs are typically declared `void`.
-- **Cannot take arguments**
-- **Should execute quickly**: Long ISRs block other interrupts or tasks.
-- **Registers & flags may need manual clearing**, depending on the hardware.
-- **Interrupt flags must often be cleared in the ISR**, or it may retrigger endlessly.
+1. **DMA controller** is configured with:
+   - Source address (e.g., ADC register)
+   - Destination address (e.g., RAM)
+   - Transfer size (in bytes/words)
+   - Transfer mode (normal, circular, etc.)
+
+2. Once triggered (manually or by peripheral event):
+   - DMA takes control of the bus
+   - Transfers the data block autonomously
+   - Generates an interrupt on completion (optional)
+
+---
+
+## Transfer Modes
+
+| Mode      | Description                                     |
+|-----------|-------------------------------------------------|
+| **Normal**   | Transfers a block once, then stops              |
+| **Circular** | Automatically restarts after finishing — useful for continuous data (e.g., ADC sampling) |
+| **Burst**    | Transfers multiple data items at once (efficient for memory-to-memory) |
+
+---
+
+## Common Use Cases
+
+- **ADC to memory** (e.g., storing sampled sensor data)
+- **Memory to DAC** (e.g., audio output waveform)
+- **USART/SPI to memory** (e.g., buffered communication)
+- **Memory-to-memory copy** (e.g., bulk data movement)
+
+> DMA is particularly helpful when paired with **interrupts** or **timers** to automate sampling and response.
+
+---
+
+## Benefits of DMA
+
+| Benefit              | Explanation                                   |
+|----------------------|-----------------------------------------------|
+| **Frees CPU**        | Reduces CPU load during repetitive transfers  |
+| **Faster throughput**| Uses direct bus access — no instruction cycles |
+| **Real-time capable**| Consistent timing for I/O, audio, ADC, etc.   |
+
+---
+
+## Example: ADC Sampling with DMA
+
+- Timer triggers ADC at regular intervals
+- ADC completes conversion
+- DMA automatically transfers result to buffer
+- CPU reads the buffer when needed
+
+This removes the need for the CPU to poll ADC or handle every sample interrupt.
