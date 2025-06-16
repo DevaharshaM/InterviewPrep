@@ -1,67 +1,72 @@
-# Time and Space Complexity in C 
-
-Time and space complexity are foundational concepts in computer science. This estimates how good a program or algorithm is.
+# Swap two numbers
 
 ---
 
-## What is Time Complexity?
+## Method 1: Using a Temporary Variable
 
-Time complexity describes how the **execution time** of an algorithm grows with respect to the size of the input `n`.
+```c
+void swapNumber(int *num1, int *num2)
+{
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+```
 
-Rather than measuring actual seconds, we describe the number of fundamental operations (comparisons, assignments, etc.) the algorithm performs.
+**Time Complexity**: `O(1)`<br>
+**Space Complexity**: `O(1)`
 
----
+## Method 2: Using Arithmetic Operations
 
-## What is Space Complexity?
+```c
+void swapNumber(int *num1, int *num2)
+{
+    *num1 = *num1 + *num2;
+    *num2 = *num1 - *num2;
+    *num1 = *num1 - *num2;
+}
+```
 
-Space complexity describes how much **extra memory** (RAM or stack) an algorithm needs as the input size grows. This includes:
+**Time Complexity**: `O(1)`<br>
+**Space Complexity**: `O(1)`
+> Not safe if values are large — risk of integer overflow.
 
-- Temporary variables
-- Recursion stack
-- Extra data structures (arrays, queues, etc.)
+## Method 3: Without Temporary Variable (XOR Bitwise)
 
-Space complexity is especially important in **embedded systems**, **low-memory environments**, and **recursive algorithms**.
+```c
+void swapNumber(int *num1, int *num2)
+{
+    *num1 = *num1 ^ *num2;
+    *num2 = *num1 ^ *num2;
+    *num1 = *num1 ^ *num2;
+}
+```
 
----
-
-## Why Analyze Complexity?
-
-- To choose the **most efficient** algorithm for a task
-- To understand how your program will **scale** with more data
-- To meet performance and memory constraints
-- To compare two solutions **objectively**, without benchmarking
-
----
-
-## Notations Used
-
-There are four main asymptotic notations:
-
-| Notation       | Describes             | Example Meaning                              |
-|----------------|------------------------|----------------------------------------------|
-| **O (Big O)**  | Worst-case time/memory | Algorithm takes **at most** this many steps  |
-| **Ω (Omega)**  | Best-case scenario     | Algorithm takes **at least** this many steps |
-| **Θ (Theta)**  | Tight bound            | Algorithm always takes exactly this many steps|
-| **o (little o)** | Non-tight upper bound | Used for theoretical comparison only         |
-
----
-
-### Why use Big O notation?
-
-- It describes the **worst-case performance**, which is often the most important in practice
-- It’s simple, practical, and standard across interviews and industry
-- It ensures the code performs well under the most demanding inputs
+**Time Complexity**: `O(1)`<br>
+**Space Complexity**: `O(1)`
+> Safe from overflow, but only works reliably on integer types.
 
 ---
 
-## Common Complexity Classes
+# main() function
 
-| Complexity     | Description                              | Example Scenarios                           |
-|----------------|------------------------------------------|---------------------------------------------|
-| **O(1)**       | Constant time                             | Accessing an element in an array            |
-| **O(log n)**   | Logarithmic time                          | Binary search                                |
-| **O(n)**       | Linear time                               | Loop through array, string comparison        |
-| **O(n log n)** | Log-linear time                           | Merge sort, quicksort (average case)         |
-| **O(n²)**      | Quadratic time                            | Nested loops (e.g., bubble sort)             |
-| **O(2ⁿ)**      | Exponential time                          | Solving Tower of Hanoi, brute-force recursion|
-| **O(n!)**      | Factorial time                            | Generating all permutations (e.g., TSP)      |
+```c
+/* include required header files */
+#include <stdio.h>
+
+/* function declaration to swap numbers */
+void swap(int *num1, int *num2);
+
+/* main function */
+int main()
+{
+    int a = 10, b = 20;
+    printf("Before Swapping - a: %d, b: %d\n", a, b);
+
+    /* function call to swap numbers */
+    swapNumber(&a, &b);
+
+    printf("After Swapping  - a: %d, b: %d\n", a, b);
+    return 0;
+}
+```
