@@ -20,7 +20,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [Data Structures](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Data%20Structures/Data%20Structures%20%20in%20C.md)
 
 ### Code
-
+- [*Check for Anagrams*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Check%20for%20Anagrams.md)
+  
 ---
 
 ## 2️⃣ Microcontroller Peripherals
