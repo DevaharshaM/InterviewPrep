@@ -21,6 +21,8 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 
 ### Code
 - [*Check for Anagrams*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Check%20for%20Anagrams.md)
+- [*Reverse a String*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Reverse%20a%20string.md)
+- [*Check for Palindrome*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Check%20for%20Palindrome.md)
   
 ---
 
