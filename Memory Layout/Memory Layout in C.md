@@ -1,6 +1,6 @@
 # Memory Layout of a C Program
 
-When a C program is compiled and run, its memory is divided into well-defined segments. The major memory segments are:
+When a C program is compiled and run, its memory is divided into well-defined segments. These segments are:
 
 - Text (Code)
 - Data
