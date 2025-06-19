@@ -64,7 +64,7 @@ gcc main.o -o main.elf
 
 > Output: .elf file (Executable and Linkable Format)
 
-### 5. **Converting `.elf` to `.hex` for microcontrollers*
+### 5. **Converting `.elf` to `.hex` for microcontrollers**
 
 Handled by: **Objcopy (GNU binutils)**
 
