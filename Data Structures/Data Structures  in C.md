@@ -1,6 +1,6 @@
 # Data Structures in C 
 
-The data structures help solve problems efficiently and provide a solid foundation for systems programming and embedded development. Common used data structure are:
+The data structures help solve problems efficiently and provide a solid foundation for systems programming and embedded development. Commonly used data structures are:
 
 ---
 
