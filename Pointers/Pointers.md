@@ -66,7 +66,7 @@ int main()
 - **pp += 5:<br>
    o *pp gives us p, which points to a<br>
    o **pp accesses a → a = a + 5 = 15
-- *p += 2:
+- *p += 2:<br>
    o *p accesses a again → a = a + 2 = 17
 - Final output: 17
 
