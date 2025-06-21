@@ -47,7 +47,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [I2C (Inter-Integrated Circuit)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/I2C%20(Inter-Integrated%20Circuit).md)
 - [SPI (Serial Peripheral Interface)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/SPI%20(Serial%20Peripheral%20Interface).md)  
 - [CAN (Controller Area Network)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/CAN%20(Controller%20Area%20Network).md)  
-- USB (Universal Serial Bus)  
+- [USB (Universal Serial Bus)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/USB%20(Universal%20Serial%20Bus).md)  
 
 ### Networking & Connectivity
 - OSI Model (Open Systems Interconnection)
