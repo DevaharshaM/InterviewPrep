@@ -4,13 +4,16 @@ The **TCP/IP model** is the foundation of modern networking. It simplifies commu
 
 ---
 
-## 📊 TCP/IP Stack Diagram
+## TCP/IP Model
 
-![TCP/IP Model](https://github.com/DevaharshaM/InterviewPrep/blob/networking/tcp.png)
+<figure>
+ <img src="https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/tcp.png">
+ <figcaption>Figure 1: TCP/IP Layers</figcaption>
+</figure>
 
 ---
 
-## 📦 TCP/IP Layers Overview
+## TCP/IP Layers Overview
 
 | Layer                | Description                                                                 |
 |----------------------|-----------------------------------------------------------------------------|
@@ -21,7 +24,7 @@ The **TCP/IP model** is the foundation of modern networking. It simplifies commu
 
 ---
 
-## 🔁 Comparison with OSI Model
+## Comparison with OSI Model
 
 | OSI Layer               | TCP/IP Equivalent         |
 |-------------------------|---------------------------|
@@ -32,7 +35,7 @@ The **TCP/IP model** is the foundation of modern networking. It simplifies commu
 
 ---
 
-## 🔍 Key Protocols by Layer
+## Key Protocols by Layer
 
 | Layer               | Example Protocols        |
 |---------------------|--------------------------|
@@ -43,7 +46,7 @@ The **TCP/IP model** is the foundation of modern networking. It simplifies commu
 
 ---
 
-## 🧠 Notes
+## Notes
 
 - **TCP**: Connection-oriented, reliable (ensures data is received and in order)
 - **UDP**: Connectionless, faster, but no delivery guarantee
@@ -51,6 +54,6 @@ The **TCP/IP model** is the foundation of modern networking. It simplifies commu
 
 ---
 
-## ✅ Summary
+## Summary
 
 The TCP/IP model is practical, protocol-based, and forms the backbone of all internet communication. It maps closely with real-world protocol implementations.
