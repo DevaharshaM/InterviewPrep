@@ -17,6 +17,8 @@ Timers typically use the system clock (or a divided version of it) to increment 
 
 ---
 
+## Operating Modes
+
 ## 1. Compare Mode
 
 In Compare mode, the timer continuously counts up (or down), and an **event is triggered** when the counter value **matches a predefined compare value**.
