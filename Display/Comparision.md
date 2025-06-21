@@ -1,6 +1,6 @@
 # Display Interface Comparison
 
-Embedded systems support multiple display interfaces depending on resolution, performance, and hardware capabilities. Difference between these interfaces are shown below:
+Embedded systems support multiple display interfaces depending on resolution, performance, and hardware capabilities. Differences between these interfaces are shown below:
 
 | Interface    | Type     | Pins Used | Relative Speed | Typical Resolution | MCU Friendly | Notes                                 |
 |--------------|----------|-----------|----------------|--------------------|--------------|----------------------------------------|
