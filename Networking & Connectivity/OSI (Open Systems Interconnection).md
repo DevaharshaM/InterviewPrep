@@ -7,7 +7,7 @@ The **OSI Model** is a conceptual framework used to understand how data is trans
 ## OSI Model 
 
 <figure>
- <img src ="">
+ <img src ="https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/osi.png">
  <figcaption>Figure 1: OSI Layers</figcaption>
 </figure>
 
