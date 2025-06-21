@@ -130,4 +130,4 @@ While not strictly a power management feature, the **Watchdog Timer (WDT)** is o
 - If the MCU hangs due to voltage instability or software bugs, WDT can reset it.
 - Acts as a **self-recovery mechanism**.
 
-*You can read more in the dedicated [Watchdog Timer section].*
+*You can read more in the dedicated [Watchdog Timer section](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Power%20and%20Timing/Timers.md).*
