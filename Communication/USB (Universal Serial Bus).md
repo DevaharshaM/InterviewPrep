@@ -82,7 +82,7 @@ USB supports standard **device classes** that allow operating systems to load ge
 The most commonly used USB connectors and their pin functions:
 
 <figure>
- <img src = " ">
+ <img src = "https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/blockUSB.png">
  <figcaption>Figure 1: Commonly used USB pins</figcaption>
 </figure>
 
