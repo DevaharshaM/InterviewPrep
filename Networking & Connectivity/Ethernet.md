@@ -55,7 +55,7 @@ Ethernet is a **packet-based communication** system where devices (nodes) exchan
 
 ---
 
-## Ethernet in Embedded Systems
+## Applications
 
 | Use Case                    | Example                              |
 |-----------------------------|--------------------------------------|
