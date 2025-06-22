@@ -1,105 +1,102 @@
-# Polling vs Interrupts in Embedded Systems
+# Bootloader in Embedded Systems
 
-Polling and interrupts are two methods used to **detect and respond to events** in embedded systems, such as a button press, data arrival, or a timer overflow.
-
----
-
-## Polling
-
-In polling, the CPU **continuously checks** (or "polls") a peripheral or status register in a loop.
-
-### Characteristics:
-- **Blocking**: CPU is occupied until event occurs.
-- **Predictable**: Easy to implement and debug.
-- **Inefficient**: Wastes CPU cycles if no event is pending.
-
-### Example:
-```c
-while (1) {
-  if (UART_Ready()) {
-    char c = UART_Read();
-    // process data
-  }
-}
-```
-
-## Interrupts
-
-In interrupt-driven systems, the CPU executes other tasks until the peripheral signals an event via an interrupt. The CPU then pauses its work to handle it.
-
-### Characteristics:
-- **Efficient**: CPU can sleep or do other work until needed.
-- **Asynchronous**: Responds only when events occur.
-- **Requires ISR**: A handler function is triggered when interrupt occurs.
-
-### Example:
-```c
-void USART1_IRQHandler(void) {
-  char c = USART_Read();
-  // process character
-}
-```
-
-## Polling vs Interrupts
-
-| Feature          |	Polling	                    | Interrupts                         |
-|------------------|------------------------------|------------------------------------|
-| CPU Utilization  |	High (wasted cycles)        |	Low (only wakes when needed)       |
-| Response Time	   | Can be delayed (loop time)   | Immediate (ISR triggered)          |
-| Complexity       |	Low	                        | Medium (ISR management needed)     |
-| Use Case         |	Fast-check, real-time loops |	Asynchronous events, low-power MCUs|
-
-## When to Use What?
-
-- Polling:<br>
-o When the event occurs frequently and predictably<br>
-o Simpler logic or in systems without interrupts<br>
-o Very time-critical polling (e.g., ultra-fast ADC sampling)
-
-- Interrupts:<br>
-o When power saving is important (CPU can sleep)<br>
-o For asynchronous or rare events (e.g., button press)<br>
-o In multitasking or time-shared systems
-
->  In practice, many systems use a combination: polling for time-critical tasks, interrupts for asynchronous events.
-
----
-# Bonus
-
-## Interrupt Service Routines (ISR) 
-
-An **Interrupt Service Routine (ISR)** is a special function that is **executed automatically** in response to an interrupt signal from hardware or a peripheral.
-
-When an interrupt occurs:
-1. The current program execution is paused.
-2. The corresponding ISR is executed.
-3. The program resumes from where it left off.
+A **bootloader** is a small program that runs before the main firmware of an embedded system. Its job is to initialize the system, verify and load the application code, and optionally provide a way to update firmware. It acts as the **bridge between hardware reset and application execution**.
 
 ---
 
-## Key Properties of ISRs
+## Why Do We Need a Bootloader?
 
-- **No return value**: ISRs are typically declared `void`.
-- **Cannot take arguments**
-- **Should execute quickly**: Long ISRs block other interrupts or tasks.
-- **Registers & flags may need manual clearing**, depending on the hardware.
-- **Interrupt flags must often be cleared in the ISR**, or it may retrigger endlessly.
+- To allow **firmware updates** without external programmers
+- To **verify firmware integrity** (e.g., using checksum, signature)
+- To support **multiple boot sources** (e.g., UART, USB, SD card)
+- To enable **secure boot** features
 
-## NVIC – Nested Vectored Interrupt Controller
+> Without a bootloader, you'd need to reflash the chip via SWD/JTAG for any update.
 
-In ARM Cortex microcontrollers, the NVIC manages all external and internal interrupts.
+---
 
-### What NVIC Does:
+## Bootloader Responsibilities
 
-- Enables or disables specific interrupts.
-- Prioritizes interrupts using preemption and subpriority.
-- Supports nested interrupts (a higher-priority ISR can interrupt a lower one).
-- Reduces latency with vector table lookup and tail-chaining.
+1. **Start after Reset**
+   - Initializes clocks, memory, peripherals
+2. **Checks for Valid Firmware**
+   - Via checksum, CRC, magic bytes, or signature
+3. **Optionally enters update mode**
+   - Can wait for commands via UART/USB/OTA
+4. **Jumps to main firmware**
+   - Sets vector table, stack pointer, and jumps to application reset handler
 
-### Example: Enabling an interrupt
+---
+
+## Memory Layout (Typical)
+
+| Section        | Description                      |
+|----------------|----------------------------------|
+| 0x0800_0000    | Bootloader code (read-only)      |
+| 0x0800_4000    | Application code start address   |
+| RAM            | Shared for both stages           |
+
+> The main firmware must be compiled with an offset to avoid overlapping bootloader space.
+
+---
+
+## Firmware Update Flow
+
+1. User triggers update (e.g., button hold, command)
+2. Bootloader enters **update mode**
+3. Receives new firmware via UART/USB/OTA
+4. Writes firmware to flash
+5. Verifies integrity (checksum/CRC/signature)
+6. Boots into the new firmware
+
+---
+
+## Secure Bootloaders
+
+Secure bootloaders add protection against unauthorized firmware by:
+- **Verifying signatures** (e.g., RSA/ECC-based)
+- **Encrypting** firmware images
+- Locking access to bootloader region
+
+---
+
+## Jumping from Bootloader to Application
 
 ```c
-NVIC_EnableIRQ(TIM2_IRQn);       // Enable TIM2 interrupt
-NVIC_SetPriority(TIM2_IRQn, 1);  // Set priority level
+#define APP_START_ADDR 0x08004000
+
+typedef void (*AppEntry)(void);
+AppEntry app = (AppEntry)(*((uint32_t*)(APP_START_ADDR + 4)));
+
+__set_MSP(*(volatile uint32_t*)APP_START_ADDR);
+app();
 ```
-> NVIC makes interrupt management flexible and scalable, especially in complex systems with multiple peripherals.
+
+- Sets the **Main Stack Pointer (MSP)**
+- Reads the **Reset Handler** address from the vector table
+- Calls the application start
+
+---
+
+## Bootloader Triggers
+
+| Method         | Description                                |
+|----------------|--------------------------------------------|
+| GPIO Pin       | Button pressed during power-on             |
+| Magic Value    | Flag stored in RAM or backup register      |
+| Failed App CRC | App not valid, fall back to bootloader     |
+
+---
+
+## Common Bootloader Implementations
+
+- **STM32 Bootloader (ROM-based)** – Can boot from USART, USB, CAN
+- **Microchip Harmony Bootloader** – Modular and configurable
+- **MCUBoot** – Open-source secure bootloader for Cortex-M
+- **Custom Bootloaders** – Tailored to the application (simpler, smaller)
+
+---
+
+# Summary
+
+A bootloader adds flexibility and safety to embedded firmware, especially when remote updates or security are important. Many commercial and open-source bootloaders exist, or you can build one tailored to your MCU.
