@@ -50,11 +50,11 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [USB (Universal Serial Bus)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/USB%20(Universal%20Serial%20Bus).md)  
 
 ### Networking & Connectivity
-- OSI Model (Open Systems Interconnection)
-- TCP/IP Model
-- Ethernet
-- Bluetooth
-- Wi-Fi (Wireless Fidelity)
+- [OSI Model (Open Systems Interconnection)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/OSI%20(Open%20Systems%20Interconnection).md)
+- [TCP/IP Model](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/TCP.md)
+- [Ethernet](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/Ethernet.md)
+- [Bluetooth](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/Bluetooth.md)
+- [Wi-Fi (Wireless Fidelity)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Networking%20%26%20Connectivity/WiFi.md)
 
 ### Display Interfaces
 - [Common Interfaces](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Display/Common%20Interfaces.md)
