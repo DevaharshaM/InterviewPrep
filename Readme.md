@@ -43,7 +43,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [DMA (Direct Memory Access)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/DMA/DMA%20(Direct%20Memory%20Access).md)
 
 ### BootLoader
--[Bootloader](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Bootloader/Bootloader.md)
+- [Bootloader](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Bootloader/Bootloader.md)
 
 ### Communication 
 - [UART (Universal Asynchronous Receiver/Transmitter)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Communication/UART%20(Universal%20Asynchronous%20Receiver%20Transmitter).md)  
