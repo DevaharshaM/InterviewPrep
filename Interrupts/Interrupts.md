@@ -64,8 +64,9 @@ o In multitasking or time-shared systems
 >  In practice, many systems use a combination: polling for time-critical tasks, interrupts for asynchronous events.
 
 ---
+# Bonus
 
-# Interrupt Service Routines (ISR) 
+## Interrupt Service Routines (ISR) 
 
 An **Interrupt Service Routine (ISR)** is a special function that is **executed automatically** in response to an interrupt signal from hardware or a peripheral.
 
@@ -83,3 +84,22 @@ When an interrupt occurs:
 - **Should execute quickly**: Long ISRs block other interrupts or tasks.
 - **Registers & flags may need manual clearing**, depending on the hardware.
 - **Interrupt flags must often be cleared in the ISR**, or it may retrigger endlessly.
+
+## NVIC – Nested Vectored Interrupt Controller
+
+In ARM Cortex microcontrollers, the NVIC manages all external and internal interrupts.
+
+### What NVIC Does:
+
+- Enables or disables specific interrupts.
+- Prioritizes interrupts using preemption and subpriority.
+- Supports nested interrupts (a higher-priority ISR can interrupt a lower one).
+- Reduces latency with vector table lookup and tail-chaining.
+
+### Example: Enabling an interrupt
+
+```c
+NVIC_EnableIRQ(TIM2_IRQn);       // Enable TIM2 interrupt
+NVIC_SetPriority(TIM2_IRQn, 1);  // Set priority level
+```
+> NVIC makes interrupt management flexible and scalable, especially in complex systems with multiple peripherals.
