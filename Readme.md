@@ -25,6 +25,7 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [*Check for Palindrome*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Check%20for%20Palindrome.md)
 - [*Count Vowels & Consonants*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Count%20for%20%20Vowels%20and%20Consonant.md)
 - [*Remove duplicate Characters*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Remove%20duplicates%20in%20a%20string.md)
+- [*Count Ones & Zeros*](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Count%201's%20&%200's.md)
   
 ---
 
