@@ -4,7 +4,7 @@
 
 This program counts the number of **set bits (1s)** and **unset bits (0s)** in the binary representation of a given non-negative integer.
 
-📌 Example:  
+### Example:  
 Input: 15  
 Binary: 00000000 00000000 00000000 00001111 (for 32-bit int)  
 Output: 4 ones, 28 zeroes
@@ -33,3 +33,8 @@ int main()
     return 0;
 }
 ```
+
+## [Time & Space Complexity](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Time%20%26%20Space%20Complexity%20in%20C.md)
+
+**Time Complexity**: `O(k) (where k is the number of set bits)`<br>
+**Space Complexity**: `O(1)`
