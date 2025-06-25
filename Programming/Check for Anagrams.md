@@ -5,6 +5,7 @@ An **anagram** is a word or phrase formed by rearranging the letters of another,
 Example: "listen" and "silent" are anagrams.
 
 ---
+## Code
 > assuming both strings contain only **lowercase English letters** (`'a'` to `'z'`).
 
 ```c
@@ -71,6 +72,8 @@ int main()
     return 0;
 }
 ```
+
+## [Time & Space Complexity](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Time%20%26%20Space%20Complexity%20in%20C.md)
 
 **Time Complexity**: `O(n)`<br>
 **Space Complexity**: `O(1)`
