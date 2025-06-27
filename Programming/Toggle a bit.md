@@ -31,5 +31,7 @@ int main()
 }
 ```
 
+## [Time & Space Complexity](https://github.com/DevaharshaM/InterviewPrep/blob/cProgramming/Programming/Time%20%26%20Space%20Complexity%20in%20C.md)
+
 **Time Complexity**: `O(1)`<br>
 **Space Complexity**: `O(1)`
