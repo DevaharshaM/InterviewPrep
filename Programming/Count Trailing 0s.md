@@ -11,6 +11,8 @@ This program counts the number of **consecutive 0s starting from the Least Signi
 
 ---
 
+## Code
+
 > Assumes the number is an 8-bit unsigned integer.
 
 ```c
