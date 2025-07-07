@@ -69,7 +69,7 @@
 
 ---
 
-## Summary
+# Summary
 
 - **SRAM** is used inside microcontrollers for its speed and simplicity.
 - **DRAM/SDRAM** is used in higher-end systems needing more memory.
