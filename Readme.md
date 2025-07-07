@@ -35,11 +35,10 @@ A crisp and structured index of theory topics for Embedded Systems interview pre
 - [Power Management](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Power%20and%20Timing/Power%20Management.md)  
 - [Timers](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Power%20and%20Timing/Timers.md)  
 
-## Memory Types
-- RAM
-- ROM
-- Hybrid
-- Comparision
+### Memory
+- [RAM](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Memory%20Types/RAM.md)
+- [ROM](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Memory%20Types/ROM.md)
+- [Hybrid](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Memory%20Types/Hybrid.md)
   
 ### Interrupts
 - [ISR (Interrupt Service Routine)](https://github.com/DevaharshaM/InterviewPrep/blob/microController/Interrupts/Interrupts.md)
