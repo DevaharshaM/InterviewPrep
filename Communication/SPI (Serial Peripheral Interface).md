@@ -83,7 +83,7 @@ The **CS line** is often used to indicate the boundary of a data frame. Some dev
 
 ---
 
-# Bonus: Advanced and Practical I²C Features
+# Bonus: Advanced and Practical SPI Features
 
 ## Daisy-Chaining SPI Devices
 
