@@ -1,12 +1,17 @@
 # User Defined Data Types
 
-C provides several ways to define custom data types that help organize code and make it more readable and scalable. The most common ones are `struct` and `enum`.
+C provides **user-defined data types** that allow programmers to group, organize, and represent data in a meaningful way.  
+The most commonly used user-defined data types are:
+
+- `struct`
+- `union`
+- `enum`
 
 ---
 
-## What is a `struct`?
+## Structure (`struct`)
 
-A `struct` (structure) groups variables of **different types** under a single name.
+A struct allows you to group variables of different data types under a single name.
 
 ### Example:
 
@@ -24,93 +29,145 @@ int main() {
     return 0;
 }
 ```
+### Key Points:
 
+- Each member has its own memory
+- Total size = sum of sizes of all members plus padding
+- Members can be accessed independently
+  
 ### Use Cases:
 
 - Representing real-world entities (like Student, Employee)
 - Passing multiple related values to functions
 - Building complex data structures (linked lists, trees, etc.)
 
-## What is an enum?
+## Union (union)
 
-An enum (enumeration) defines a set of named integer constants.
+A union is similar to a struct, but all members share the same memory location.
 
 ### Example:
 
 ```c
-#include <stdio.h>
-
-enum Day { MON, TUE, WED, THU, FRI, SAT, SUN };
-
-int main() {
-    enum Day today = WED;
-
-    if (today == WED)
-        printf("Midweek!\n");
-
-    return 0;
-}
+union Data {
+    int i;
+    float f;
+    char c;
+};
 ```
+
+### Key Points:
+
+- Only one member is valid at a time
+- Size of union = size of the largest member
+- Writing to one member overwrites others
 
 ### Use Cases:
 
-- Replacing magic numbers with named constants
-- Representing states (e.g., IDLE, BUSY, ERROR)
-- Using symbolic values in switch or if statements
+- Memory optimization
+- Interpreting the same data in multiple ways
+- Hardware register access in embedded systems
+
+## Enumeration (enum)
+
+An enum defines a set of named integer constants.
+
+### Example:
+
+```c
+enum State {
+    IDLE,
+    BUSY,
+    ERROR
+};
+```
+
+### Key Points:
+
+- Improves readability
+- Avoids magic numbers
+- Internally stored as integers
+
+### Use Cases:
+
+- State machines
+- Mode selection
+- Error codes
 
 ---
 
-## Typedef: Making User-Defined Types Easier to Use
+## Typedef
 
-The typedef keyword creates an alias for a data type, reducing verbosity and improving readability.
+The typedef keyword creates an alias for an existing data type, improving code readability.
 
-### Without typedef
-
-```c
-struct Point {
-    int x, y;
-};
-
-struct Point p1;
-```
-
-### With typedef
-
+### Typedef with Structure:
 ```c
 typedef struct {
-    int x, y;
+    int x;
+    int y;
 } Point;
 
 Point p1;
 ```
-
-### Typedef with enum
-
+### Typedef with Enum:
 ```c
 typedef enum {
-    RED, GREEN, BLUE
+    RED,
+    GREEN,
+    BLUE
 } Color;
 
-Color c = GREEN;
+Color c = RED;
 ```
-
-### Benefits:
+### Why Use typedef?
 
 - Cleaner syntax
-- Easier to use in large codebases
-- Abstracts complexity in data structures and APIs
+- Easier maintenance
+- Common in APIs and embedded codebases
 
 ---
 
-## struct vs enum 
+## Structure vs Union 
 
-| Feature	| struct	                      | enum                            |
-|-----------|---------------------------------|---------------------------------|
-| Purpose	| Group multiple variables	      | Name a set of related constants |
-| Types	    | Can mix different data types	  | Only holds integers             |
-| Memory	| Takes memory for each field	  | Just stores one integer         |
-| Use Case	| Data models, complex structures | Modes, states, symbolic values  |
-| Access	| Use dot/arrow for fields	      | Use by symbolic constant        |
+| Feature	        | struct	                      | union                               |
+|-------------------|---------------------------------|-------------------------------------|
+| Memory Allocation | Separate memory for each member     | Shared memory for all members   |
+| Size	            | Sum of all member sizes (+ padding) | Size of largest member          |
+| Access	        | All members accessible	          | Only one member valid at a time |
+| Use Case	        | Data grouping	                      | Memory optimization             |
+
+---
+
+# BONUS: Structure Padding
+
+Structure padding is the automatic insertion of unused bytes by the compiler to align data members for faster access.
+
+## Example:
+
+```c
+struct Example {
+    char a;
+    int b;
+};
+```
+### Explaination:
+
+| Member  | Size    | Offset |
+|---------|---------|--------|
+| char a  |	1 byte  | 0      |
+| padding |	3 bytes | 1–3    |
+| int b   |	4 bytes | 4      |
+
+👉 Total size = 8 bytes, not 5.
+
+## Why Padding Happens:
+
+- CPUs access aligned data faster
+- Misaligned access can cause performance penalties or faults (especially in embedded systems)
+
+## How to Reduce Padding:
+
+- Reorder structure members from largest to smallest
+- Use compiler-specific packing (with caution)
 
 ---
 
